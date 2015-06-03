@@ -1,4 +1,6 @@
-﻿<section class="colon14">
+﻿@model List<Longgan.Models.Home.Product>
+
+<section class="colon14">
     <div class="singleheader">
         <div class="container">
             <div class="col-lg-6 col-sm-6 col-md-6">
@@ -31,8 +33,13 @@
                     <nav class="portfolio-filter">
                         <ul>
                             <li><a href="#" class="btn btn-general active" data-filter="*">所有产品</a></li>
-                            <li><a href="#" class="btn btn-general" data-filter=".SYX">商用型热泵</a></li>
-                            <li><a href="#" class="btn btn-general" data-filter=".JYX">家用型热泵</a></li>
+                            <li><a href="#" class="btn btn-general" data-filter=".SY">商用型热泵</a></li>
+                            <li><a href="#" class="btn btn-general" data-filter=".JY">家用型热泵</a></li>
+                            <li><a href="#" class="btn btn-general" data-filter=".DY">地源热泵</a></li>
+                            <li><a href="#" class="btn btn-general" data-filter=".KZ">控制系列</a></li>
+                            <li><a href="#" class="btn btn-general" data-filter=".DQ">电器元件</a></li>
+                            <li><a href="#" class="btn btn-general" data-filter=".KT">空调产品</a></li>
+
                         </ul>
                     </nav>
                 </div> <!--/container -->
@@ -41,40 +48,119 @@
             <div class="clearfix"></div>
 
             <section class="portfolio">
+                @{
+                    List<Longgan.Models.Home.Product> allProducts = Model;
+                    List<Longgan.Models.Home.Product> SYProducts = Model.FindAll(p => p.Type == "SY").OrderByDescending(p => p.Created).ToList();
+                    List<Longgan.Models.Home.Product> JYProducts = Model.FindAll(p => p.Type == "JY").OrderByDescending(p => p.Created).ToList();
+                    List<Longgan.Models.Home.Product> DYProducts = Model.FindAll(p => p.Type == "DY").OrderByDescending(p => p.Created).ToList();
+                    List<Longgan.Models.Home.Product> KZProducts = Model.FindAll(p => p.Type == "KZ").OrderByDescending(p => p.Created).ToList();
+                    List<Longgan.Models.Home.Product> DQProducts = Model.FindAll(p => p.Type == "DQ").OrderByDescending(p => p.Created).ToList();
+                    List<Longgan.Models.Home.Product> KTProducts = Model.FindAll(p => p.Type == "KT").OrderByDescending(p => p.Created).ToList();
 
-                @for (int i = 1; i <= 8; i++)
+                    string filePath = VirtualPathUtility.ToAbsolute(System.Configuration.ConfigurationManager.AppSettings["fileRoot"]);
+                }
+
+                @foreach (Longgan.Models.Home.Product product in SYProducts)
                 {
-                    string imgUrl = string.Format("~/images/mc{0}.png", i.ToString());
+                    string picPath = string.Format("{0}/{1}", filePath, product.PicName);
 
-                    <div class="col-lg-3 col-md-3 col-sm-6 JYX">
+                    <div class="col-lg-3 col-md-3 col-sm-6 SY">
                         <div class="portfolio-columns">
-                            <a href="@Url.Action("ProductsDetail")">
-                                <img src="@Url.Content(@imgUrl)" alt="">
+                            <a href="@Url.Action("ProductsDetail", new { Id = @product.Id })">
+                                <img src="@Url.Content(@picPath)" style="height:180px;width:200px;" alt="">
                                 <div>
-                                    <h5>SYRB-B系列热泵热水机组</h5>
-                                    <p><i class="icon-folder-open-alt"></i>详细</p>
+                                    <h5>@product.Title</h5>
+                                    <p><i class="icon-folder-open-alt"></i>@product.Content</p>
                                 </div>
                             </a>
                         </div>
                     </div>
                 }
 
-                @for (int i = 9; i <= 12; i++)
+                @foreach (Longgan.Models.Home.Product product in JYProducts)
                 {
-                    string imgUrl = string.Format("~/images/mc{0}.jpg", i.ToString());
-                    <div class="col-lg-3 col-md-3 col-sm-6 SYX">
+                    string picPath = string.Format("{0}/{1}", filePath, product.PicName);
+
+                    <div class="col-lg-3 col-md-3 col-sm-6 JY">
                         <div class="portfolio-columns">
-                            <a href="@Url.Action("ProductsDetail")">
-                                <img src="@Url.Content(@imgUrl)" alt="">
+                            <a href="@Url.Action("ProductsDetail", new { Id = @product.Id })">
+                                <img src="@Url.Content(@picPath)" style="height:180px;width:200px;" alt="">
                                 <div>
-                                    <h5>SYRB-B系列热泵热水机组</h5>
-                                    <p><i class="icon-folder-open-alt"></i>详细</p>
+                                    <h5>@product.Title</h5>
+                                    <p><i class="icon-folder-open-alt"></i>@product.Content</p>
                                 </div>
                             </a>
                         </div>
                     </div>
                 }
 
+                @foreach (Longgan.Models.Home.Product product in DYProducts)
+                {
+                    string picPath = string.Format("{0}/{1}", filePath, product.PicName);
+
+                    <div class="col-lg-3 col-md-3 col-sm-6 DY">
+                        <div class="portfolio-columns">
+                            <a href="@Url.Action("ProductsDetail", new { Id = @product.Id })">
+                                <img src="@Url.Content(@picPath)" style="height:180px;width:200px;" alt="">
+                                <div>
+                                    <h5>@product.Title</h5>
+                                    <p><i class="icon-folder-open-alt"></i>@product.Content</p>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                }
+
+                @foreach (Longgan.Models.Home.Product product in KZProducts)
+                {
+                    string picPath = string.Format("{0}/{1}", filePath, product.PicName);
+
+                    <div class="col-lg-3 col-md-3 col-sm-6 KZ">
+                        <div class="portfolio-columns">
+                            <a href="@Url.Action("ProductsDetail", new { Id = @product.Id })">
+                                <img src="@Url.Content(@picPath)" style="height:180px;width:200px;" alt="">
+                                <div>
+                                    <h5>@product.Title</h5>
+                                    <p><i class="icon-folder-open-alt"></i>@product.Content</p>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                }
+
+                @foreach (Longgan.Models.Home.Product product in DQProducts)
+                {
+                    string picPath = string.Format("{0}/{1}", filePath, product.PicName);
+
+                    <div class="col-lg-3 col-md-3 col-sm-6 DQ">
+                        <div class="portfolio-columns">
+                            <a href="@Url.Action("ProductsDetail", new { Id = @product.Id })">
+                                <img src="@Url.Content(@picPath)" style="height:180px;width:200px;" alt="">
+                                <div>
+                                    <h5>@product.Title</h5>
+                                    <p><i class="icon-folder-open-alt"></i>@product.Content</p>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                }
+
+                @foreach (Longgan.Models.Home.Product product in KTProducts)
+                {
+                    string picPath = string.Format("{0}/{1}", filePath, product.PicName);
+
+                    <div class="col-lg-3 col-md-3 col-sm-6 KT">
+                        <div class="portfolio-columns">
+                            <a href="@Url.Action("ProductsDetail", new { Id = @product.Id })">
+                                <img src="@Url.Content(@picPath)" style="height:180px;width:200px;" alt="">
+                                <div>
+                                    <h5>@product.Title</h5>
+                                    <p><i class="icon-folder-open-alt"></i>@product.Content</p>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                }
             </section>
 
             <div class="clearfix"></div>
