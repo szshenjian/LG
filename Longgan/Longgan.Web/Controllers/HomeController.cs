@@ -73,7 +73,9 @@ namespace Longgan.Web.Controllers
 
         public ActionResult ProductsList()
         {
-            return View();
+            ProductsLogic pl = new ProductsLogic();
+            List<Product> prs = pl.GetProducts();
+            return View(prs);
         }
 
         public ActionResult ProductsDetail()
