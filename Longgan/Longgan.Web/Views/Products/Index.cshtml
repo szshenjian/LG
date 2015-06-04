@@ -61,7 +61,26 @@
                 }
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Type)
+                @{
+                string typeDisplay = "";
+
+                switch (item.Type)
+                {
+                    case "SY": typeDisplay = "商用型热泵";
+                        break;
+                    case "JY": typeDisplay = "家用型热泵";
+                        break;
+                    case "DY": typeDisplay = "地源热泵";
+                        break;
+                    case "KZ": typeDisplay = "控制系列";
+                        break;
+                    case "DQ": typeDisplay = "电器元件";
+                        break;
+                    case "KT": typeDisplay = "空调产品";
+                        break;
+                }
+                }
+                @Html.Label(@typeDisplay)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Created)

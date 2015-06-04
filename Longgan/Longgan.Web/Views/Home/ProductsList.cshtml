@@ -58,109 +58,48 @@
                     List<Longgan.Models.Home.Product> KTProducts = Model.FindAll(p => p.Type == "KT").OrderByDescending(p => p.Created).ToList();
 
                     string filePath = VirtualPathUtility.ToAbsolute(System.Configuration.ConfigurationManager.AppSettings["fileRoot"]);
+
+                    List<String> pString = new List<string> { "JY", "SY", "DY", "KZ", "DQ", "KT" };
                 }
 
-                @foreach (Longgan.Models.Home.Product product in SYProducts)
+                @foreach (string p in pString)
                 {
-                    string picPath = string.Format("{0}/{1}", filePath, product.PicName);
+                    List<Longgan.Models.Home.Product> lPs = new List<Longgan.Models.Home.Product>();
+                    switch (p)
+                    {
+                        case "SY": lPs = SYProducts;
+                            break;
+                        case "JY": lPs = JYProducts;
+                            break;
+                        case "DY": lPs = DYProducts;
+                            break;
+                        case "KZ": lPs = KZProducts;
+                            break;
+                        case "DQ": lPs = DQProducts;
+                            break;
+                        case "KT": lPs = KTProducts;
+                            break;
+                    }
 
-                    <div class="col-lg-3 col-md-3 col-sm-6 SY">
-                        <div class="portfolio-columns">
-                            <a href="@Url.Action("ProductsDetail", new { Id = @product.Id })">
-                                <img src="@Url.Content(@picPath)" style="height:180px;width:200px;" alt="">
-                                <div>
-                                    <h5>@product.Title</h5>
-                                    <p><i class="icon-folder-open-alt"></i>@product.Content</p>
-                                </div>
-                            </a>
+                    foreach (Longgan.Models.Home.Product product in lPs)
+                    {
+                        string picPath = string.Format("{0}/{1}", filePath, product.PicName);
+
+                        <div class="col-lg-3 col-md-3 col-sm-6 @p" data-effect="slide-bottom">
+                            <div class="gallery-box">
+                                <a href="@Url.Content(@picPath)" class="zoombox effect-icona" data-biggallery="@p" data-biggallerythumbnail="@Url.Content(@picPath)">
+                                    <img src="@Url.Content(@picPath)" style="height:180px;width:200px;" alt="">
+                                </a>
+                                <div class="gallery-box-titles">
+                                    <h3><i class="icon-folder-open-alt"></i> &nbsp;<a href="@Url.Action("ProductsDetail", new { Id = @product.Id })">@product.Title</a></h3>
+                                </div><!-- gallery-box-titles -->
+                            </div>
                         </div>
-                    </div>
+                    }
+
                 }
 
-                @foreach (Longgan.Models.Home.Product product in JYProducts)
-                {
-                    string picPath = string.Format("{0}/{1}", filePath, product.PicName);
 
-                    <div class="col-lg-3 col-md-3 col-sm-6 JY">
-                        <div class="portfolio-columns">
-                            <a href="@Url.Action("ProductsDetail", new { Id = @product.Id })">
-                                <img src="@Url.Content(@picPath)" style="height:180px;width:200px;" alt="">
-                                <div>
-                                    <h5>@product.Title</h5>
-                                    <p><i class="icon-folder-open-alt"></i>@product.Content</p>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                }
-
-                @foreach (Longgan.Models.Home.Product product in DYProducts)
-                {
-                    string picPath = string.Format("{0}/{1}", filePath, product.PicName);
-
-                    <div class="col-lg-3 col-md-3 col-sm-6 DY">
-                        <div class="portfolio-columns">
-                            <a href="@Url.Action("ProductsDetail", new { Id = @product.Id })">
-                                <img src="@Url.Content(@picPath)" style="height:180px;width:200px;" alt="">
-                                <div>
-                                    <h5>@product.Title</h5>
-                                    <p><i class="icon-folder-open-alt"></i>@product.Content</p>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                }
-
-                @foreach (Longgan.Models.Home.Product product in KZProducts)
-                {
-                    string picPath = string.Format("{0}/{1}", filePath, product.PicName);
-
-                    <div class="col-lg-3 col-md-3 col-sm-6 KZ">
-                        <div class="portfolio-columns">
-                            <a href="@Url.Action("ProductsDetail", new { Id = @product.Id })">
-                                <img src="@Url.Content(@picPath)" style="height:180px;width:200px;" alt="">
-                                <div>
-                                    <h5>@product.Title</h5>
-                                    <p><i class="icon-folder-open-alt"></i>@product.Content</p>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                }
-
-                @foreach (Longgan.Models.Home.Product product in DQProducts)
-                {
-                    string picPath = string.Format("{0}/{1}", filePath, product.PicName);
-
-                    <div class="col-lg-3 col-md-3 col-sm-6 DQ">
-                        <div class="portfolio-columns">
-                            <a href="@Url.Action("ProductsDetail", new { Id = @product.Id })">
-                                <img src="@Url.Content(@picPath)" style="height:180px;width:200px;" alt="">
-                                <div>
-                                    <h5>@product.Title</h5>
-                                    <p><i class="icon-folder-open-alt"></i>@product.Content</p>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                }
-
-                @foreach (Longgan.Models.Home.Product product in KTProducts)
-                {
-                    string picPath = string.Format("{0}/{1}", filePath, product.PicName);
-
-                    <div class="col-lg-3 col-md-3 col-sm-6 KT">
-                        <div class="portfolio-columns">
-                            <a href="@Url.Action("ProductsDetail", new { Id = @product.Id })">
-                                <img src="@Url.Content(@picPath)" style="height:180px;width:200px;" alt="">
-                                <div>
-                                    <h5>@product.Title</h5>
-                                    <p><i class="icon-folder-open-alt"></i>@product.Content</p>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                }
             </section>
 
             <div class="clearfix"></div>
@@ -218,8 +157,8 @@
             function setColumns()
             {
                 var winWidth = $(window).width(),
-					columnNumber = getColumnNumber(),
-					itemWidth = Math.floor(winWidth / columnNumber);
+                columnNumber = getColumnNumber(),
+                itemWidth = Math.floor(winWidth / columnNumber);
 
                 $container.find('.portfolio-columns').each(function ()
                 {

@@ -114,7 +114,7 @@ namespace Longgan.Web.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Title,Content,PicName,IntroName,Type,Created")] Product product)
+        public ActionResult Edit([Bind(Include = "Id,Title,Content,PicName,IntroName,Type,Created")] Product product, FormCollection fm)
         {
             if (ModelState.IsValid)
             {
@@ -160,6 +160,10 @@ namespace Longgan.Web.Controllers
                     {
                         System.IO.File.Delete(oriPath);
                     }
+                }
+                if (fm["PType"] != null && oriProduct.Type != fm["PType"])
+                {
+                    product.Type = fm["PType"];
                 }
 
                 logic.UpdateProduct(product);
