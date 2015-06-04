@@ -78,9 +78,11 @@ namespace Longgan.Web.Controllers
             return View(prs);
         }
 
-        public ActionResult ProductsDetail()
+        public ActionResult ProductsDetail(string Id)
         {
-            return View();
+            ProductsLogic pl = new ProductsLogic();
+            Product p = pl.GetProduct(Id);
+            return View(p);
         }
 
         public ActionResult AfterSale()

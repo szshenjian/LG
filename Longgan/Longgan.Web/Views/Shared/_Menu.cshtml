@@ -7,81 +7,89 @@
         @Html.ActionLink("产品展示", "ProductsList")
         <div class="megamenu full-width">
             <div class="row">
-                <div class="col2">
-                    <ul>
-                        <li class="title"><h5>商用型热泵</h5></li>
-                        <li>
-                            <div class="widget">
-                                <ul class="recent-posts">
-                                    <li>
-                                        <div class="recent-posts-img">
-                                            <a href="#" title="" rel="bookmark">
-                                                <img width="60" height="60" src="~/images/syrb1.png" alt="" />
-                                            </a>
-                                        </div>
-                                        <div class="recent-posts-content">
-                                            <a href="#"><p>SYRB-B系列热泵热水机组</p></a>
-                                        </div>
-                                        <ul class="post-date">
-                                            <li><i class="icon-cog"> </i><a href="#" title="">详情</a></li>
-                                        </ul>
-                                    </li>
-                                    <li>
-                                        <div class="recent-posts-img">
-                                            <a href="#" title="" rel="bookmark">
-                                                <img width="60" height="60" src="~/images/syrb2.jpg" alt="" />
-                                            </a>
-                                        </div>
-                                        <div class="recent-posts-content">
-                                            <a href="#"><p>SYRB-B系列热泵热水机组</p></a>
-                                        </div>
-                                        <ul class="post-date">
-                                            <li><i class="icon-cog"></i> <a href="#" title="">详情</a></li>
-                                        </ul>
-                                    </li>
-                                </ul>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-                <div class="col2">
-                    <ul>
-                        <li class="title"><h5>家用型热泵</h5></li>
-                        <li>
-                            <div class="widget">
-                                <ul class="recent-posts">
-                                    <li>
-                                        <div class="recent-posts-img">
-                                            <a href="#" title="" rel="bookmark">
-                                                <img width="60" height="60" src="~/images/syrb1.png" alt="" />
-                                            </a>
-                                        </div>
-                                        <div class="recent-posts-content">
-                                            <a href="#"><p>SYRB-B系列热泵热水机组</p></a>
-                                        </div>
-                                        <ul class="post-date">
-                                            <li><i class="icon-cog"></i><a href="#" title="">详情</a></li>
-                                        </ul>
-                                    </li>
-                                    <li>
-                                        <div class="recent-posts-img">
-                                            <a href="#" title="" rel="bookmark">
-                                                <img width="60" height="60" src="~/images/syrb2.jpg" alt="" />
-                                            </a>
-                                        </div>
-                                        <div class="recent-posts-content">
-                                            <a href="#"><p>SYRB-B系列热泵热水机组</p></a>
-                                        </div>
-                                        <ul class="post-date">
-                                            <li><i class="icon-cog"></i><a href="#" title="">详情</a></li>
-                                        </ul>
-                                    </li>
-                                </ul>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
 
+                @{
+                    List<Longgan.Models.Home.Product> allProducts = new Longgan.Logics.Home.ProductsLogic().GetProducts();
+                    List<Longgan.Models.Home.Product> SYProducts = allProducts.FindAll(p => p.Type == "SY").OrderByDescending(p => p.Created).Take(3).ToList();
+                    List<Longgan.Models.Home.Product> JYProducts = allProducts.FindAll(p => p.Type == "JY").OrderByDescending(p => p.Created).Take(3).ToList();
+                    List<Longgan.Models.Home.Product> DYProducts = allProducts.FindAll(p => p.Type == "DY").OrderByDescending(p => p.Created).Take(3).ToList();
+                    List<Longgan.Models.Home.Product> KZProducts = allProducts.FindAll(p => p.Type == "KZ").OrderByDescending(p => p.Created).Take(3).ToList();
+                    List<Longgan.Models.Home.Product> DQProducts = allProducts.FindAll(p => p.Type == "DQ").OrderByDescending(p => p.Created).Take(3).ToList();
+                    List<Longgan.Models.Home.Product> KTProducts = allProducts.FindAll(p => p.Type == "KT").OrderByDescending(p => p.Created).Take(3).ToList();
+
+                    string filePath = VirtualPathUtility.ToAbsolute(System.Configuration.ConfigurationManager.AppSettings["fileRoot"]);
+
+                    List<String> pString = new List<string> { "SY", "JY", "DY" };
+                }
+                @{
+                    foreach (string p in pString)
+                    {
+
+                        List<Longgan.Models.Home.Product> lPs = new List<Longgan.Models.Home.Product>();
+                        switch (p)
+                        {
+                            case "SY": lPs = SYProducts;
+                                break;
+                            case "JY": lPs = JYProducts;
+                                break;
+                            case "DY": lPs = DYProducts;
+                                break;
+                            case "KZ": lPs = KZProducts;
+                                break;
+                            case "DQ": lPs = DQProducts;
+                                break;
+                            case "KT": lPs = KTProducts;
+                                break;
+                        }
+                        string typeDisplay = "";
+                        switch (p)
+                        {
+                            case "SY": typeDisplay = "商用型热泵";
+                                break;
+                            case "JY": typeDisplay = "家用型热泵";
+                                break;
+                            case "DY": typeDisplay = "地源热泵";
+                                break;
+                            case "KZ": typeDisplay = "控制系列";
+                                break;
+                            case "DQ": typeDisplay = "电器元件";
+                                break;
+                            case "KT": typeDisplay = "空调产品";
+                                break;
+                        }
+                        <div class="col2">
+                            <ul>
+                                <li class="title"><h5>@typeDisplay</h5></li>
+                                <li>
+                                    <div class="widget">
+                                        <ul class="recent-posts">
+
+                                            @foreach (Longgan.Models.Home.Product product in lPs)
+                                            {
+                                                string picPath = string.Format("{0}/{1}", filePath, product.PicName);
+                                                <li>
+                                                    <div class="recent-posts-img">
+                                                        <a href="@Url.Action("ProductsDetail", new { Id = @product.Id })" title="" rel="bookmark">
+                                                            <img style="width:60px;height:60px;" src="@Url.Content(@picPath)" alt="" />
+                                                        </a>
+                                                    </div>
+                                                    <div class="recent-posts-content">
+                                                        <a href="@Url.Action("ProductsDetail", new { Id = @product.Id })"><p>@product.Title</p></a>
+                                                    </div>
+
+                                                </li>
+                                            }
+                                        </ul>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    }
+                }
+
+
+                @*@Html.ActionLink("所有产品", "ProductsList", null, new { @class = "readmore" })*@
+                <a href="@Url.Action("ProductsList")" style="padding-bottom:2%;"><p style="color:#289DCC;font-size:large;">更多产品...</p></a>
             </div>
         </div>
 

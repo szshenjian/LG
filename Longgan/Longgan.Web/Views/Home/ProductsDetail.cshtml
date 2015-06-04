@@ -1,9 +1,11 @@
-﻿<section class="colon14">
+﻿@model Longgan.Models.Home.Product
+
+<section class="colon14">
     <div class="singleheader">
         <div class="container">
             <div class="col-lg-6 col-sm-6 col-md-6">
                 <div class="single-title">
-                    <h3>SYRB-B系列热泵热水机组</h3>
+                    <h3>@Model.Title</h3>
                 </div>
             </div>
             <div class="col-lg-6 col-sm-6 col-md-6">
@@ -11,14 +13,17 @@
                     <ul class="breadcrumb">
                         <li>@Html.ActionLink("首页", "Index")</li>
                         <li>@Html.ActionLink("产品展示", "ProductsList")</li>
-                        <li class="active">SYRB-B系列热泵热水机组</li>
+                        <li class="active">@Model.Title</li>
                     </ul>
                 </div>
             </div>
         </div>
 
     </div>
-
+    @{
+        string filePath = VirtualPathUtility.ToAbsolute(System.Configuration.ConfigurationManager.AppSettings["fileRoot"]);
+        string picPath = string.Format("{0}/{1}", filePath, Model.PicName);
+    }
     <!-- START CONTENT AND SIDEBAR -->
     <div class="container general">
 
@@ -26,13 +31,13 @@
 
             <div class="col-lg-8 col-md-8 col-sm-12">
                 <div class="flexslider">
-                    <a href="#"><img src="~/images/mc1.png" alt="" title="" /></a>
+                    <a href="#"><img src="@Url.Content(@picPath)" alt="" title="" /></a>
                     @*<ul class="slides">
-                        <li>
-                            <a href="#"><img src="~/images/mc1.png" alt="" title="" /></a>
-                        </li>
-                   
-                    </ul>*@
+                            <li>
+                                <a href="#"><img src="~/images/mc1.png" alt="" title="" /></a>
+                            </li>
+
+                        </ul>*@
                 </div>
             </div>
 
@@ -42,9 +47,9 @@
                     <span>产品描述</span>
                 </h2>
 
-                <p>这是产品描述，这是产品描述</p>
-
-                <hr>
+                <p>@Model.Title</p>
+                <p>@Model.Content</p>
+                @*<hr>
 
                 <div class="clearfix"></div>
 
@@ -58,83 +63,85 @@
                         <div id="collapseTwo" class="accordion-body collapse in">
                             <div class="accordion-inner">
                                 <ul class="portfolio-details">
-                                    <li><strong>详情 :</strong> 详情</li>
-                                    <li><strong>详情 :</strong> 详情</li>
+                                    <li>@Model.Content</li>
                                 </ul>
                             </div>
                         </div>
                     </div>
-                    
-                </div><!-- end accordion -->
+
+                </div>*@
+            
+            <!-- end accordion -->
             </div><!-- end widget -->
         </div><!-- end col-4 -->
         @*<div class="clearfix"></div>
 
-        <ul class="pager">
-            <li class="previous">
-                <a href="#">← Older</a>
-            </li>
-            <li class="next">
-                <a href="#">Newer →</a>
-            </li>
-        </ul>
+            <ul class="pager">
+                <li class="previous">
+                    <a href="#">← Older</a>
+                </li>
+                <li class="next">
+                    <a href="#">Newer →</a>
+                </li>
+            </ul>
 
-        <div class="clearfix"></div>
-        <div class="related-products">
-            <h2 class="general-title">
-                <span>Related Portfolio Items</span>
-            </h2>
-            <div class="col-lg-3 col-md-3 col-sm-6">
-                <div class="portfolio-columns">
-                    <a href="single-portfolio-1.html">
-                        <img src="demos/02_demo.jpg" alt="">
-                        <div>
-                            <h5>City Skyline</h5>
-                            <p><i class="icon-folder-open-alt"></i> WordPress</p>
-                        </div>
-                    </a>
-                </div>
-            </div>
-
-            <div class="col-lg-3 col-md-3 col-sm-6">
-                <div class="portfolio-columns">
-                    <a href="single-portfolio-1.html">
-                        <img src="demos/03_demo.jpg" alt="">
-                        <div>
-                            <h5>Choosen a Directory</h5>
-                            <p><i class="icon-folder-open-alt"></i> Photoshop</p>
-                        </div>
-                    </a>
-                </div>
-            </div>
-
-            <div class="col-lg-3 col-md-3 col-sm-6">
-                <div class="portfolio-columns">
-                    <a href="single-portfolio-1.html">
-                        <img src="demos/04_demo.jpg" alt="">
-                        <div>
-                            <h5>Wooden Furface</h5>
-                            <p><i class="icon-folder-open-alt"></i> Illustrator</p>
-                        </div>
-                    </a>
-                </div>
-            </div>
-
-            <div class="col-lg-3 col-md-3 col-sm-6">
-                <div class="portfolio-columns">
-                    <a href="single-portfolio-1.html">
-                        <img src="demos/08_demo.jpg" alt="">
-                        <div>
-                            <h5>Another Great Item</h5>
-                            <p><i class="icon-folder-open-alt"></i> Illustrator</p>
-                        </div>
-                    </a>
-                </div>
-            </div>
             <div class="clearfix"></div>
-            <div class="divider"></div>
-        </div>*@
+            <div class="related-products">
+                <h2 class="general-title">
+                    <span>Related Portfolio Items</span>
+                </h2>
+                <div class="col-lg-3 col-md-3 col-sm-6">
+                    <div class="portfolio-columns">
+                        <a href="single-portfolio-1.html">
+                            <img src="demos/02_demo.jpg" alt="">
+                            <div>
+                                <h5>City Skyline</h5>
+                                <p><i class="icon-folder-open-alt"></i> WordPress</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
 
+                <div class="col-lg-3 col-md-3 col-sm-6">
+                    <div class="portfolio-columns">
+                        <a href="single-portfolio-1.html">
+                            <img src="demos/03_demo.jpg" alt="">
+                            <div>
+                                <h5>Choosen a Directory</h5>
+                                <p><i class="icon-folder-open-alt"></i> Photoshop</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-3 col-sm-6">
+                    <div class="portfolio-columns">
+                        <a href="single-portfolio-1.html">
+                            <img src="demos/04_demo.jpg" alt="">
+                            <div>
+                                <h5>Wooden Furface</h5>
+                                <p><i class="icon-folder-open-alt"></i> Illustrator</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-3 col-sm-6">
+                    <div class="portfolio-columns">
+                        <a href="single-portfolio-1.html">
+                            <img src="demos/08_demo.jpg" alt="">
+                            <div>
+                                <h5>Another Great Item</h5>
+                                <p><i class="icon-folder-open-alt"></i> Illustrator</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+                <div class="divider"></div>
+            </div>*@
+
+        >
     </div><!-- end content -->
     <!-- end container -->
     <!-- END CONTENT -->
