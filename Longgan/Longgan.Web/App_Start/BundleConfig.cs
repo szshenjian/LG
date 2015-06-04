@@ -38,7 +38,8 @@ namespace Longgan.Web
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
-                      "~/Content/style.css"));
+                      "~/Content/style.css",
+                      "~/Content/qqcontact.css"));
 
             bundles.Add(new StyleBundle("~/Content/Admincss").Include(
                       "~/Content/AdminCss/bootstrap.css",

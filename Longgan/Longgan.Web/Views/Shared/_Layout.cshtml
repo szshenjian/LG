@@ -99,6 +99,27 @@
         </div>
         <div class="dmtop">Scroll to Top</div>
     </div><!-- /wrapper -->
+
+    <div id="floatTools" class="rides-cs" style="height:288px;">
+        <div class="floatL">
+            <a id="aFloatTools_Show" class="btnOpen" title="查看在线客服" style="top:55px;display:block" href="javascript:void(0);">展开</a>
+            <a id="aFloatTools_Hide" class="btnCtn" title="关闭在线客服" style="top:55px;display:none" href="javascript:void(0);">收缩</a>
+        </div>
+        <div id="divFloatToolsView" class="floatR" style="display: none;height:337px;width: 240px;">
+            <div class="cn" style="text-align: center;">
+                <h4>苏州陇赣机电工程有限公司</h4>
+                <ul>
+                    <li><span>在线客服</span> <a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=502400453&menu=yes"><img border="0" src="~/images/qqonline.png" alt="点击这里给我发消息" title="点击这里给我发消息" /></a> </li>
+                    <li><span>在线客服</span> <a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=397529330&menu=yes"><img border="0" src="~/images/qqonline.png" alt="点击这里给我发消息" title="点击这里给我发消息" /></a> </li>
+                    <li style="border:none;"><span>地址: 苏州高新区横塘好易家4幢288号</span> </li>
+                    <li style="border:none;"><span>电话: 0512-65653142</span> </li>
+                    <li style="border:none;"><span>卢经理: 13812755349</span> </li>
+                    <li style="border:none;"><span>王经理: 15050101075</span> </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
     @Scripts.Render("~/bundles/modernizr")
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/jqueryval")
@@ -107,6 +128,19 @@
     @RenderSection("scripts", required: false)
 
     <script type="text/javascript">
+
+        $(function () {
+            $("#aFloatTools_Show").click(function () {
+                $('#divFloatToolsView').animate({ width: 'show', opacity: 'show' }, 100, function () { $('#divFloatToolsView').show(); });
+                $('#aFloatTools_Show').hide();
+                $('#aFloatTools_Hide').show();
+            });
+            $("#aFloatTools_Hide").click(function () {
+                $('#divFloatToolsView').animate({ width: 'hide', opacity: 'hide' }, 100, function () { $('#divFloatToolsView').hide(); });
+                $('#aFloatTools_Show').show();
+                $('#aFloatTools_Hide').hide();
+            });
+        });
 
         $('document').ready(function () {
 

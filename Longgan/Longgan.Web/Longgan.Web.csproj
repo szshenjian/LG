@@ -160,7 +160,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\MessagesController.cs" />
+    <Compile Include="Controllers\MessagesController.cs"/>
     <Compile Include="Controllers\NewsController.cs" />
     <Compile Include="Controllers\ProductsController.cs" />
     <Compile Include="Global.asax.cs">
@@ -248,6 +248,7 @@
     <Content Include="Content\layerslider\skins\noskin\skin.png" />
     <Content Include="Content\menu.css" />
     <Content Include="Content\mightyslider.css" />
+    <Content Include="Content\qqcontact.css" />
     <Content Include="Content\nivo-slider.css" />
     <Content Include="Content\rs-plugin\assets\arrowleft.png" />
     <Content Include="Content\rs-plugin\assets\arrowright.png" />
@@ -390,6 +391,8 @@
     <Content Include="images\product-business.png" />
     <Content Include="images\product-family.png" />
     <Content Include="images\product-ground.png" />
+    <Content Include="images\qqContact.png" />
+    <Content Include="images\qqonline.png" />
     <Content Include="images\search.png" />
     <Content Include="images\side_nav_bg.png" />
     <Content Include="images\singleheader.png" />
