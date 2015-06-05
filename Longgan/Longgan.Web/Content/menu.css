@@ -323,7 +323,6 @@ ul.footer-menu li:last-child {border-right:0 solid #000}
 	height: 50px;
 	cursor: pointer;
 	color: #777;
-	background: #ffffff;
 }
 .jetmenu > li.showhide span.title{
 	margin: 15px 0 0 25px;
@@ -451,7 +450,6 @@ ul.footer-menu li:last-child {border-right:0 solid #000}
 	}
 	.jetmenu a{
 		width: 100%;
-		background: #ffffff;
 		box-sizing:border-box;
 		-moz-box-sizing:border-box; 
 		-webkit-box-sizing:border-box; 
