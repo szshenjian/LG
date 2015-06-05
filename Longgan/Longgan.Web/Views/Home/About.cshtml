@@ -75,7 +75,11 @@
                 <div class="single-stat">
                     <div class="col-lg-6 col-md-6 col-sm-6" data-effect="slide-bottom">
                         <div class="stat">
-                            <span class="stat-count">88</span>
+                            @{
+                                List<Longgan.Models.Home.Product> allProducts = new Longgan.Logics.Home.ProductsLogic().GetProducts();
+                                int productsCount = allProducts.Count;
+                            }
+                            <span class="stat-count">@productsCount</span>
                             <p class="stat-detail">产品数量</p>
                         </div>
                     </div>
