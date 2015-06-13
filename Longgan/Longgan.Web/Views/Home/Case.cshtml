@@ -1,7 +1,13 @@
-﻿@{
+﻿@model PagedList.StaticPagedList<Longgan.Models.Home.SetCase>
+@using PagedList
+@using PagedList.Mvc
+
+@{
     ViewBag.Title = "Case";
 }
 <link rel="stylesheet" type="text/css" href="~/Content/rs-plugin/css/settings.css" media="screen" />
+<link rel="stylesheet" type="text/css" href="~/Content/pretty/css/prettyPhoto.css" media="screen" />
+<link rel="stylesheet" type="text/css" href="~/Content/jquery.jqzoom.css" media="screen" />
 
 
 <div id="wrapper">
@@ -30,176 +36,29 @@
         <!-- START CONTENT AND SIDEBAR -->
         <div class="container">
 
-            <div id="content" class="single col-lg-12 col-md-12 col-sm-12">
+            <div id="content" class="single col-lg-12 col-md-12 col-sm-12">                
 
-                <div class="col-lg-3 col-md-3 col-sm-6" data-effect="slide-bottom">
-                    <div class="gallery-box">
-                        <a href="~/images/Case/五星级酒店吴江海悦维保-1.jpg" class="zoombox effect-icona" data-biggallery="gallery1">
-                            <img class="img-thumbnail" src="~/images/Case/五星级酒店吴江海悦维保-1.jpg" alt="">
-                        </a>
-                        <div class="gallery-box-hide">
-                            <a href="~/images/Case/五星级酒店吴江海悦维保-2.jpg" class="zoombox effect-icona" data-biggallery="gallery1">
-                                <img src="~/images/Case/五星级酒店吴江海悦维保-2.jpg" />
+                <ul class='gallery clearfix' style='list-style-type: none;padding-left:0px;'>
+                    @foreach (var item in Model)
+                    {
+                        string filePath = VirtualPathUtility.ToAbsolute(System.Configuration.ConfigurationManager.AppSettings["fileRoot"]);
+                        string picPath = string.Format("{0}/{1}", filePath, item.PicName);
+                        <li style='float:left;padding-right:15px;padding-bottom:15px;'>
+                            <a href='@picPath' alt='@item.Title' rel='prettyPhoto[gallery1]' id="img1">
+                                <img src='@picPath' class='img-thumbnail img-rounded' style='width:200px;height:200px;' alt='@item.Title' />
                             </a>
-                        </div>
-                        <div class="gallery-box-link">
-                            <h3>@Html.ActionLink("五星级酒店吴江海悦维保", "CaseDetail")</h3>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-3 col-md-3 col-sm-6" data-effect="slide-bottom">
-                    <div class="gallery-box">
-                        <a href="~/images/Case/南京四五四解放军医院-2.jpg" class="zoombox effect-icona" data-biggallery="gallery3">
-                            <img class="img-thumbnail" src="~/images/Case/南京四五四解放军医院-2.jpg" alt="">
-                        </a>
-                        <div class="gallery-box-hide">
-                            <a href="~/images/Case/南京四五四解放军医院-1.jpg" class="zoombox effect-icona" data-biggallery="gallery3">
-                                <img src="~/images/Case/南京四五四解放军医院-1.jpg" />
-                            </a>
-                        </div>
-                        <div class="gallery-box-hide">
-                            <a href="~/images/Case/南京四五四解放军医院-3.jpg" class="zoombox effect-icona" data-biggallery="gallery3">
-                                <img src="~/images/Case/南京四五四解放军医院-3.jpg" />
-                            </a>
-                        </div>
-                        <div class="gallery-box-hide">
-                            <a href="~/images/Case/南京四五四解放军医院-4.jpg" class="zoombox effect-icona" data-biggallery="gallery3">
-                                <img src="~/images/Case/南京四五四解放军医院-4.jpg" />
-                            </a>
-                        </div>
-                        <div class="gallery-box-link">
-                            <h3>@Html.ActionLink("南京四五四解放军医院", "CaseDetail")</h3>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-3 col-md-3 col-sm-6" data-effect="slide-bottom">
-                    <div class="gallery-box">
-                        <a href="~/images/Case/苏州农业大学热水工程-1.jpg" class="zoombox effect-icona" data-biggallery="gallery4">
-                            <img class="img-thumbnail" src="~/images/Case/苏州农业大学热水工程-1.jpg" alt="">
-                        </a>
-                        <div class="gallery-box-hide">
-                            <a href="~/images/Case/苏州农业大学热水工程-2.jpg" class="zoombox effect-icona" data-biggallery="gallery4">
-                                <img src="~/images/Case/苏州农业大学热水工程-2.jpg" />
-                            </a>
-                        </div>
-                        <div class="gallery-box-link">
-                            <h3>@Html.ActionLink("苏州农业大学热水工程", "CaseDetail")</h3>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-3 col-md-3 col-sm-6" data-effect="slide-bottom">
-                    <div class="gallery-box">
-                        <a href="~/images/Case/2014042258339273.jpg" class="zoombox effect-icona" data-biggallery="gallery5">
-                            <img class="img-thumbnail" src="~/images/Case/2014042258352477.jpg" alt="">
-                        </a>
-                        <div class="gallery-box-link">
-                            <h3>@Html.ActionLink("案列", "CaseDetail")</h3>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-3 col-md-3 col-sm-6" data-effect="slide-bottom">
-                    <div class="gallery-box">
-                        <a href="~/images/Case/2014042258339273.jpg" class="zoombox effect-icona" data-biggallery="gallery5">
-                            <img class="img-thumbnail" src="~/images/Case/2014042258367009.jpg" alt="">
-                        </a>
-                        <div class="gallery-box-link">
-                            <h3>@Html.ActionLink("案列", "CaseDetail")</h3>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-3 col-md-3 col-sm-6" data-effect="slide-bottom">
-                    <div class="gallery-box">
-                        <a href="~/images/Case/2014042258339273.jpg" class="zoombox effect-icona" data-biggallery="gallery5">
-                            <img class="img-thumbnail" src="~/images/Case/2014042258378853.jpg" alt="">
-                        </a>
-                        <div class="gallery-box-link">
-                            <h3>@Html.ActionLink("案列", "CaseDetail")</h3>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-3 col-md-3 col-sm-6" data-effect="slide-bottom">
-                    <div class="gallery-box">
-                        <a href="~/images/Case/2014042258339273.jpg" class="zoombox effect-icona" data-biggallery="gallery5">
-                            <img class="img-thumbnail" src="~/images/Case/2014042258392713.jpg" alt="">
-                        </a>
-                        <div class="gallery-box-link">
-                            <h3>@Html.ActionLink("案列", "CaseDetail")</h3>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-3 col-md-3 col-sm-6" data-effect="slide-bottom">
-                    <div class="gallery-box">
-                        <a href="~/images/Case/2014042258339273.jpg" class="zoombox effect-icona" data-biggallery="gallery5">
-                            <img class="img-thumbnail" src="~/images/Case/2014042258405617.jpg" alt="">
-                        </a>
-                        <div class="gallery-box-link">
-                            <h3>@Html.ActionLink("案列", "CaseDetail")</h3>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-3 col-md-3 col-sm-6" data-effect="slide-bottom">
-                    <div class="gallery-box">
-                        <a href="~/images/Case/2014042258339273.jpg" class="zoombox effect-icona" data-biggallery="gallery5">
-                            <img class="img-thumbnail" src="~/images/Case/2014042258291181.jpg" alt="">
-                        </a>
-                        <div class="gallery-box-link">
-                            <h3>@Html.ActionLink("案列", "CaseDetail")</h3>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-3 col-md-3 col-sm-6" data-effect="slide-bottom">
-                    <div class="gallery-box">
-                        <a href="~/images/Case/2014042258339273.jpg" class="zoombox effect-icona" data-biggallery="gallery5">
-                            <img class="img-thumbnail" src="~/images/Case/2014042258339273.jpg" alt="">
-                        </a>
-                        <div class="gallery-box-link">
-                            <h3>@Html.ActionLink("案列", "CaseDetail")</h3>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-3 col-md-3 col-sm-6" data-effect="slide-bottom">
-                    <div class="gallery-box">
-                        <a href="~/images/Case/2014042258339273.jpg" class="zoombox effect-icona" data-biggallery="gallery5">
-                            <img class="img-thumbnail" src="~/images/Case/2014042258339273.jpg" alt="">
-                        </a>
-                        <div class="gallery-box-link">
-                            <h3>@Html.ActionLink("案列", "CaseDetail")</h3>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-3 col-md-3 col-sm-6" data-effect="slide-bottom">
-                    <div class="gallery-box">
-                        <a href="~/images/Case/2014042258339273.jpg" class="zoombox effect-icona" data-biggallery="gallery5">
-                            <img class="img-thumbnail" src="~/images/Case/2014042258339273.jpg" alt="">
-                        </a>
-                        <div class="gallery-box-link">
-                            <h3>@Html.ActionLink("案列", "CaseDetail")</h3>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="clearfix"></div>
-                <ul class="pagination">
-                    <li><a href="#">«</a></li>
-                    <li class="active"><a href="#">1</a></li>
-                    <li><a href="#">2</a></li>
-                    <li><a href="#">3</a></li>
-                    <li><a href="#">4</a></li>
-                    <li><a href="#">5</a></li>
-                    <li><a href="#">»</a></li>
+                            <div class="gallery-box-link" style="text-align:center;">
+                                <h5>@Html.ActionLink(item.Title, "CaseDetail", new { Id = item.Id })</h5>
+                            </div>
+                        </li>
+                    }
                 </ul>
-            
+
+                <div>
+                    @Html.PagedListPager((PagedList.IPagedList)Model, page => Url.Action("Case", new { page = page }), new PagedList.Mvc.PagedListRenderOptions { UlElementClasses = new List<string> { "pagination pagination-sm" }, MaximumPageNumbersToDisplay = 10, Display = PagedList.Mvc.PagedListDisplayMode.IfNeeded })
+                </div>
+
+
             </div><!-- end content -->
 
         </div><!-- end container -->
@@ -213,4 +72,29 @@
 @section Scripts {
     @Scripts.Render("~/Content/rs-plugin/js/jquery.themepunch.plugins.min.js");
     @Scripts.Render("~/Content/rs-plugin/js/jquery.themepunch.revolution.min.js");
+@Scripts.Render("~/Scripts/jquery.prettyPhoto.js");
+    @Scripts.Render("~/Scripts/jquery.jqzoom-core.js");
+    <script type="text/javascript">
+        $(function ()
+        {
+            $("a[rel^='prettyPhoto']").prettyPhoto({
+                show_title: true,
+                default_width: 800,
+                default_height: 600,
+                allow_resize: false
+            });
+
+            $('#img1').jqzoom({
+                //                zoomType: 'reverse',
+                //                lens: true,
+                //                preloadImages: false,
+                //                alwaysOn: false
+                zoomWidth: 200,
+                zoomHeight: 200,
+                position: "right",
+                lens: true,
+                imageOpacity: 1.0
+            });
+        })
+    </script>
 }

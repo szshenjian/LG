@@ -1,4 +1,6 @@
-﻿@{
+﻿@model Longgan.Models.Home.SetCase
+
+@{
     ViewBag.Title = "CaseDetail";
 }
 
@@ -11,7 +13,7 @@
         <div class="container">
             <div class="col-lg-6 col-sm-6 col-md-6">
                 <div class="single-title">
-                    <h3>安装案例-南京四五四解放军医院</h3>
+                    <h3>@Model.Title</h3>
                 </div>
             </div>
             <div class="col-lg-6 col-sm-6 col-md-6">
@@ -19,7 +21,7 @@
                     <ul class="breadcrumb">
                         <li>@Html.ActionLink("首页", "Index")</li>
                         <li>@Html.ActionLink("安装案例", "Case")</li>
-                        <li class="active">南京四五四解放军医院</li>
+                        <li class="active">@Model.Title</li>
                     </ul>
                 </div>
             </div>
@@ -35,73 +37,71 @@
             <div id="content" class="single-portfolio col-lg-12 col-md-12 col-sm-12">
 
                 <div class="col-lg-8 col-md-8 col-sm-12">
-                    <div class="flexslider">
-                        <ul class="slides">
-                            <li>
-                                <a ><img src="~/images/Case/南京四五四解放军医院-2.jpg" alt="" title="" /></a>
-                            </li>
-                            <li>
-                                <a ><img src="~/images/Case/南京四五四解放军医院-1.jpg" alt="" title="" /></a>
-                            </li>
-                            <li>
-                                <a ><img src="~/images/Case/南京四五四解放军医院-3.jpg" alt="" title="" /></a>
-                            </li>
-                            <li>
-                                <a><img src="~/images/Case/南京四五四解放军医院-4.jpg" alt="" title="" /></a>
-                            </li>
-                        </ul>
-                    </div>
+                    @{
+                        string filePath = VirtualPathUtility.ToAbsolute(System.Configuration.ConfigurationManager.AppSettings["fileRoot"]);
+                        string picPath = string.Format("{0}/{1}", filePath, Model.PicName);
+                    }
+
+                    <img src="@picPath" alt="" title="" />
+                    @*<div class="flexslider">
+                            <ul class="slides">
+                                <li>
+                                    <a><img src="~/images/Case/南京四五四解放军医院-2.jpg" alt="" title="" /></a>
+                                </li>
+
+                            </ul>
+                        </div>*@
                 </div>
 
                 <div class="col-lg-4 col-md-4 col-sm-12">
                     <div class="clearfix"></div>
                     <h2 class="general-title">
-                        <span>南京四五四解放军医院</span>
+                        <span>@Model.Title</span>
                     </h2>
 
-                    <p>5台10匹空气能与太阳能完美结合；体现了陇赣人节能环保服务社会的经营理念。5台10匹空气能与太阳能完美结合；体现了陇赣人节能环保服务社会的经营理念。</p>
+                    <p>@Model.Content</p>
 
-                   <hr>
+                @*<hr>*@
 
-                    <div class="clearfix"></div>
+                <div class="clearfix"></div>
+                <!--
+                                    <div class="accordion" id="accordion2">
+                                        <div class="accordion-group">
+                                            <div class="accordion-heading">
+                                                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseTwo">
+                                                    <em class="icon-plus icon-fixed-width"></em>案列详情
+                                                </a>
+                                            </div>
+                                            <div id="collapseTwo" class="accordion-body collapse in">
+                                                <div class="accordion-inner">
+                                                    <ul class="portfolio-details">
+                                                        <li><strong>日期 :</strong> 2014/05/05</li>
+                                                        <li><strong>地点 :</strong> <a href="#" title="">南京XXXXX</a></li>
+                                                        <li><strong>空气能 :</strong> 5台</li>
+                                                        <li><strong>太阳能 :</strong> 10台</li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div> end accordion -->
+            </div><!-- end widget -->
+        </div><!-- end col-4 -->
+        <div class="clearfix"></div>
 
-                    <div class="accordion" id="accordion2">
-                        <div class="accordion-group">
-                            <div class="accordion-heading">
-                                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseTwo">
-                                    <em class="icon-plus icon-fixed-width"></em>案列详情
-                                </a>
-                            </div>
-                            <div id="collapseTwo" class="accordion-body collapse in">
-                                <div class="accordion-inner">
-                                    <ul class="portfolio-details">
-                                        <li><strong>日期 :</strong> 2014/05/05</li>
-                                        <li><strong>地点 :</strong> <a href="#" title="">南京XXXXX</a></li>
-                                        <li><strong>空气能 :</strong> 5台</li>
-                                        <li><strong>太阳能 :</strong> 10台</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div><!-- end accordion -->
-                </div><!-- end widget -->
-            </div><!-- end col-4 -->
-            <div class="clearfix"></div>
+        @*<ul class="pager">
+            <li class="previous">
+                <a href="#">← 前一个</a>
+            </li>
+            <li class="next">
+                <a href="#">下一个 →</a>
+            </li>
+        </ul>*@
 
-            <ul class="pager">
-                <li class="previous">
-                    <a href="#">← 前一个</a>
-                </li>
-                <li class="next">
-                    <a href="#">下一个 →</a>
-                </li>
-            </ul>
-
-        </div><!-- end content -->
+    </div><!-- end content -->
 
 
-    </section>
-    <div class="clearfix"></div>
+</section>
+<div class="clearfix"></div>
 </div>
 
 @section Scripts {

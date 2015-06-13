@@ -50,6 +50,7 @@
   <ItemGroup>
     <Compile Include="DatabaseContext.cs" />
     <Compile Include="GenericRepository.cs" />
+    <Compile Include="Home\CaseDA.cs" />
     <Compile Include="Home\MessageDA.cs" />
     <Compile Include="Home\NewsDA.cs" />
     <Compile Include="Home\ProductsDA.cs" />

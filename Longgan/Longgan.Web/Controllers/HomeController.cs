@@ -1,5 +1,6 @@
 ﻿using Longgan.Logics.Home;
 using Longgan.Models.Home;
+using PagedList;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -62,13 +63,22 @@ namespace Longgan.Web.Controllers
             return View(news);
         }
 
-        public ActionResult Case()
+        public ActionResult Case(int? page)
         {
-            return View();
+            CaseLogic logic = new CaseLogic();
+            int pageIndex = page ?? 1;
+            int pageSize = 20;
+            int totalCount = 0;
+            @ViewBag.pageindex = pageIndex;
+            List<SetCase> cases = logic.GetCasesPaging(pageIndex, pageSize, ref totalCount);
+            var casesAsIPagedList = new StaticPagedList<SetCase>(cases, pageIndex, pageSize, totalCount);
+            return View(casesAsIPagedList);
         }
-        public ActionResult CaseDetail()
+        public ActionResult CaseDetail(string Id)
         {
-            return View();
+            CaseLogic logic = new CaseLogic();
+            SetCase scase = logic.GetCase(Id);
+            return View(scase);
         }
 
         public ActionResult ProductsList()
