@@ -85,7 +85,11 @@
                     </div>
                     <div class="col-lg-6 col-md-6 col-sm-6" data-effect="slide-bottom">
                         <div class="stat">
-                            <span class="stat-count">42</span>
+                            @{
+                                List<Longgan.Models.Home.SetCase> allCases = new Longgan.Logics.Home.CaseLogic().GetCases();
+                                int casesCount = allCases.Count;
+                            }
+                            <span class="stat-count">@casesCount</span>
                             <p class="stat-detail">成功案例</p>
                         </div>
                     </div>
@@ -95,5 +99,5 @@
         </div>
 
     </section>
-        
+
 </div>
