@@ -255,6 +255,14 @@
     <Content Include="Content\menu.css" />
     <Content Include="Content\mightyslider.css" />
     <Content Include="Content\PagedList.css" />
+    <Content Include="Content\pretty\css\prettyPhoto.css" />
+    <Content Include="Content\pretty\images\prettyPhoto\default\default_thumb.png" />
+    <Content Include="Content\pretty\images\prettyPhoto\default\loader.gif" />
+    <Content Include="Content\pretty\images\prettyPhoto\default\sprite.png" />
+    <Content Include="Content\pretty\images\prettyPhoto\default\sprite_next.png" />
+    <Content Include="Content\pretty\images\prettyPhoto\default\sprite_prev.png" />
+    <Content Include="Content\pretty\images\prettyPhoto\default\sprite_x.png" />
+    <Content Include="Content\pretty\images\prettyPhoto\default\sprite_y.png" />
     <Content Include="Content\qqcontact.css" />
     <Content Include="Content\nivo-slider.css" />
     <Content Include="Content\rs-plugin\assets\arrowleft.png" />
@@ -412,6 +420,7 @@
     <Content Include="images\transparent.png" />
     <Content Include="images\tweet.png" />
     <Content Include="images\weixin.jpg" />
+    <Content Include="images\weixin2.jpg" />
     <Content Include="images\xq.png" />
     <Content Include="images\zoombox-close.png" />
     <Content Include="Scripts\application.js" />
@@ -445,6 +454,7 @@
     <Content Include="Scripts\jquery.flexslider-min.js" />
     <Content Include="Scripts\jquery.idcode.js" />
     <Content Include="Scripts\jquery.isotope.min.js" />
+    <Content Include="Scripts\jquery.jqzoom-core.js" />
     <Content Include="Scripts\jquery.js" />
     <Content Include="Scripts\jquery.nivo.slider.js" />
     <Content Include="Scripts\jquery.prettyPhoto.js" />
