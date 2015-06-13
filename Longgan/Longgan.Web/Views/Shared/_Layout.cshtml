@@ -41,20 +41,19 @@
                 <div class="col-lg-3 col-md-3 col-sm-12">
                     <a class="" href="@Url.Action("Index")"><img src="~/images/logo_new.png" alt="苏州陇赣机电工程有限公司"></a>
                 </div>
-                <div class="col-lg-9 col-md-12 col-sm-12">           
-                        <div  style="padding-top: 1%; text-align: right; padding-right: 2%;">                            
-                            <i class="icon-phone-sign"></i>&nbsp;&nbsp;服务热线：13812755349 &nbsp;15050101075                         
-                        </div>                  
-                        <div class="col-lg-12 col-md-12 col-sm-12">
-                            <nav style="padding-top:0%;">
-                                @Html.Partial("_Menu")
-                            </nav><!-- /nav -->
-                        </div>
-               
+                <div class="col-lg-9 col-md-12 col-sm-12">
+                    <div style="padding-top: 1%; text-align: right; padding-right: 2%;">
+                        <h4> <i class="icon-phone-sign"></i>&nbsp;&nbsp;服务热线：<img src="~/images/phone1.png"> &nbsp; &nbsp;<img src="~/images/phone2.png">                        </h4>
+                    </div>
+                    <div class="col-lg-12 col-md-12 col-sm-12">
+                        <nav style="padding-top:0%;" >
+                            @Html.Partial("_Menu")
+                        </nav><!-- /nav -->
+                    </div>
+
                 </div>
             </div>
         </header><!-- /header wrapper -->
-
         @RenderBody()
 
         <footer class="footer-wrapper">
@@ -75,7 +74,7 @@
                                 <span>分享</span>
                             </h2>*@
                         <img src="~/images/weixin.jpg" style="width:100px;height:100px;" />&nbsp;&nbsp;&nbsp;&nbsp;
-                        <img src="~/images/weixin2.jpg" style="width:100px;height:100px;"/>
+                        <img src="~/images/weixin2.jpg" style="width:100px;height:100px;" />
                     </div>
                 </div>
             </div>
@@ -134,27 +133,31 @@
 
     <script type="text/javascript">
 
-        $(function () {
-            $("#aFloatTools_Show").click(function () {
+        $(function ()
+        {
+            $("#aFloatTools_Show").click(function ()
+            {
                 $('#divFloatToolsView').animate({ width: 'show', opacity: 'show' }, 100, function () { $('#divFloatToolsView').show(); });
                 $('#aFloatTools_Show').hide();
                 $('#aFloatTools_Hide').show();
             });
-            $("#aFloatTools_Hide").click(function () {
+            $("#aFloatTools_Hide").click(function ()
+            {
                 $('#divFloatToolsView').animate({ width: 'hide', opacity: 'hide' }, 100, function () { $('#divFloatToolsView').hide(); });
                 $('#aFloatTools_Show').show();
                 $('#aFloatTools_Hide').hide();
             });
         });
 
-        $('document').ready(function () {
+        $('document').ready(function ()
+        {
 
             if ($('#layerslider').length == 0)
                 return;
 
             $('#layerslider').layerSlider({
 
-                skinsPath: 'Content/layerslider/skins/',                
+                skinsPath: 'Content/layerslider/skins/',
                 skin: 'fullwidth'
             });
         });
@@ -170,7 +173,8 @@
         });
 
         var $ = jQuery.noConflict();
-        $(window).load(function () {
+        $(window).load(function ()
+        {
 
             if ($('.flexslider').length == 0)
                 return;
@@ -179,13 +183,16 @@
                 animation: "fade"
             });
 
-            $(function () {
-                $('.show_menu').click(function () {
+            $(function ()
+            {
+                $('.show_menu').click(function ()
+                {
                     $('.menu').fadeIn();
                     $('.show_menu').fadeOut();
                     $('.hide_menu').fadeIn();
                 });
-                $('.hide_menu').click(function () {
+                $('.hide_menu').click(function ()
+                {
                     $('.menu').fadeOut();
                     $('.show_menu').fadeIn();
                     $('.hide_menu').fadeOut();
