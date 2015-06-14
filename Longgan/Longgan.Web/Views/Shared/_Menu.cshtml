@@ -16,6 +16,7 @@
                     List<Longgan.Models.Home.Product> KZProducts = allProducts.FindAll(p => p.Type == "KZ").OrderByDescending(p => p.Created).Take(3).ToList();
                     List<Longgan.Models.Home.Product> DQProducts = allProducts.FindAll(p => p.Type == "DQ").OrderByDescending(p => p.Created).Take(3).ToList();
                     List<Longgan.Models.Home.Product> KTProducts = allProducts.FindAll(p => p.Type == "KT").OrderByDescending(p => p.Created).Take(3).ToList();
+                    List<Longgan.Models.Home.Product> GWProducts = allProducts.FindAll(p => p.Type == "GW").OrderByDescending(p => p.Created).Take(3).ToList();
 
                     string filePath = VirtualPathUtility.ToAbsolute(System.Configuration.ConfigurationManager.AppSettings["fileRoot"]);
 
@@ -40,6 +41,8 @@
                                 break;
                             case "KT": lPs = KTProducts;
                                 break;
+                            case "GW": lPs = GWProducts;
+                                break;
                         }
                         string typeDisplay = "";
                         switch (p)
@@ -55,6 +58,8 @@
                             case "DQ": typeDisplay = "电器元件";
                                 break;
                             case "KT": typeDisplay = "空调产品";
+                                break;
+                            case "GW": typeDisplay = "高温空气源（电镀槽专用）";
                                 break;
                         }
                         <div class="col2">

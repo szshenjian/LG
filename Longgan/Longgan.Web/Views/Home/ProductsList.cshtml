@@ -39,7 +39,7 @@
                             <li><a href="#" class="btn btn-general" data-filter=".KZ">控制系列</a></li>
                             <li><a href="#" class="btn btn-general" data-filter=".DQ">电器元件</a></li>
                             <li><a href="#" class="btn btn-general" data-filter=".KT">空调产品</a></li>
-
+                            <li><a href="#" class="btn btn-general" data-filter=".GW">高温空气源（电镀槽专用）</a></li>
                         </ul>
                     </nav>
                 </div> <!--/container -->
@@ -56,10 +56,11 @@
                     List<Longgan.Models.Home.Product> KZProducts = Model.FindAll(p => p.Type == "KZ").OrderByDescending(p => p.Created).ToList();
                     List<Longgan.Models.Home.Product> DQProducts = Model.FindAll(p => p.Type == "DQ").OrderByDescending(p => p.Created).ToList();
                     List<Longgan.Models.Home.Product> KTProducts = Model.FindAll(p => p.Type == "KT").OrderByDescending(p => p.Created).ToList();
-
+                    List<Longgan.Models.Home.Product> GWProducts = Model.FindAll(p => p.Type == "GW").OrderByDescending(p => p.Created).ToList();
+                    
                     string filePath = VirtualPathUtility.ToAbsolute(System.Configuration.ConfigurationManager.AppSettings["fileRoot"]);
 
-                    List<String> pString = new List<string> { "JY", "SY", "DY", "KZ", "DQ", "KT" };
+                    List<String> pString = new List<string> { "JY", "SY", "DY", "KZ", "DQ", "KT", "GW" };
                 }
 
                 @foreach (string p in pString)
@@ -78,6 +79,8 @@
                         case "DQ": lPs = DQProducts;
                             break;
                         case "KT": lPs = KTProducts;
+                            break;
+                        case "GW": lPs = GWProducts;
                             break;
                     }
 
