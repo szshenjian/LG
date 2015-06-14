@@ -19,7 +19,7 @@
 
                     string filePath = VirtualPathUtility.ToAbsolute(System.Configuration.ConfigurationManager.AppSettings["fileRoot"]);
 
-                    List<String> pString = new List<string> { "SY", "JY", "DY" };
+                    List<String> pString = new List<string> { "SY", "DY", "KT" };
                 }
                 @{
                     foreach (string p in pString)
@@ -105,5 +105,4 @@
     
         <ul class="dropdown"><li>@Html.ActionLink("售后服务", "AfterSale") </li></ul>
     </li>
-    
 </ul>

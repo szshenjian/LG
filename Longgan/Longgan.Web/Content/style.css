@@ -35,8 +35,9 @@
 		min-height: 100%;
 	}
 	
-	body {
-		background-color: #FFF;
+	body {        
+		/*background-color: #FFF;*/
+        background: url("../images/01_slider.png") repeat scroll;
 		color: #777;
 		font-family: "Arial","Microsoft YaHei","黑体","宋体",sans-serif;
 		font-size: 14px;
@@ -461,19 +462,22 @@
 		text-decoration:none;
 		color:#444444;
 	}
-	
-	.colon1 {
+
+    .colon1 {
+        background:url("../images/01_slider.png") repeat scroll;
 	}
-	.navbar-fixed-top {}
+
+	.navbar-fixed-top {}    
 	.colon2,
 	.colon3 {
-		background:#ffffff;
+		/*background:#ffffff;*/
+        background:url("../images/01_slider.png") repeat scroll;
 		padding:3rem 0;
 		position:relative;
 	}
-	
+     
 	.colon4 {
-		background:url(../images/02_slider.png) no-repeat fixed center top / cover #000000;
+		background:url("../images/01_slider.png") repeat scroll;
 		padding:3rem 0;
 		position:relative;
 	}
@@ -565,7 +569,7 @@
 	}
 
 	.colon14 {
-		background:#ffffff;
+		background:url("../images/01_slider.png") repeat scroll;
 		padding:0;
 		position:relative;
 	}
@@ -579,7 +583,7 @@
 	}
 		
 	.general {
-		background:#ffffff;
+		/*background:#ffffff;*/
 		padding:30px 10px;
 	}
 	
@@ -2171,7 +2175,8 @@
 	}
 	
 	.general-title {
-		background: url(../images/title.gif) repeat-x scroll 0 7px #FFFFFF;
+		/*background: url(../images/title.gif) repeat-x scroll 0 7px #FFFFFF;*/
+        background: url(../images/title.gif) repeat-x scroll 0 7px;
 		font-size: 16px;
 		font-weight: 600;
 		margin-bottom:20px;
