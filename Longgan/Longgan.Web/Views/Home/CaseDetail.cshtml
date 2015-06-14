@@ -4,8 +4,32 @@
     ViewBag.Title = "CaseDetail";
 }
 
-<link rel="stylesheet" type="text/css" href="~/Content/rs-plugin/css/settings.css" media="screen" />
+<style>
+    /* these styles are for the demo, but are not required for the plugin */
+    .zoom {
+        display: inline-block;
+        position: relative;
+    }
 
+        /* magnifying glass icon */
+        .zoom:after {
+            content: '';
+            display: block;
+            width: 33px;
+            height: 33px;
+            position: absolute;
+            top: 0;
+            right: 0;
+        }
+
+        .zoom img {
+            display: block;
+        }
+
+            .zoom img::selection {
+                background-color: transparent;
+            }
+</style>
 
 <div id="wrapper">
 
@@ -36,21 +60,16 @@
 
             <div id="content" class="single-portfolio col-lg-12 col-md-12 col-sm-12">
 
-                <div class="col-lg-8 col-md-8 col-sm-12">
+                <div id="zoomdiv" class="col-lg-8 col-md-8 col-sm-12">
                     @{
                         string filePath = VirtualPathUtility.ToAbsolute(System.Configuration.ConfigurationManager.AppSettings["fileRoot"]);
                         string picPath = string.Format("{0}/{1}", filePath, Model.PicName);
                     }
 
-                    <img src="@picPath" alt="" title="" />
-                    @*<div class="flexslider">
-                            <ul class="slides">
-                                <li>
-                                    <a><img src="~/images/Case/南京四五四解放军医院-2.jpg" alt="" title="" /></a>
-                                </li>
+                    <span class='zoom' id='photoImg'>
+                        <img src="@picPath" alt="" title="" />
+                    </span>
 
-                            </ul>
-                        </div>*@
                 </div>
 
                 <div class="col-lg-4 col-md-4 col-sm-12">
@@ -64,26 +83,6 @@
                 @*<hr>*@
 
                 <div class="clearfix"></div>
-                <!--
-                                    <div class="accordion" id="accordion2">
-                                        <div class="accordion-group">
-                                            <div class="accordion-heading">
-                                                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseTwo">
-                                                    <em class="icon-plus icon-fixed-width"></em>案列详情
-                                                </a>
-                                            </div>
-                                            <div id="collapseTwo" class="accordion-body collapse in">
-                                                <div class="accordion-inner">
-                                                    <ul class="portfolio-details">
-                                                        <li><strong>日期 :</strong> 2014/05/05</li>
-                                                        <li><strong>地点 :</strong> <a href="#" title="">南京XXXXX</a></li>
-                                                        <li><strong>空气能 :</strong> 5台</li>
-                                                        <li><strong>太阳能 :</strong> 10台</li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div> end accordion -->
             </div><!-- end widget -->
         </div><!-- end col-4 -->
         <div class="clearfix"></div>
@@ -105,5 +104,24 @@
 </div>
 
 @section Scripts {
-    @Scripts.Render("~/Scripts/jquery.flexslider-min.js");
+    @Scripts.Render("~/Scripts/jquery.zoom.min.js");
+    <script>
+        (function ($) {
+            var w = $("#zoomdiv").width();//容器宽度
+            $("#zoomdiv img").each(function () {//如果有很多图片，我们可以使用each()遍历
+                var img_w = $(this).width();//图片宽度
+                var img_h = $(this).height();//图片高度
+                if (img_w > w) {//如果图片宽度超出容器宽度--要撑破了
+                    var height = (w * img_h) / img_w; //高度等比缩放
+                    $(this).css({ "width": w, "height": height });//设置缩放后的宽度和高度
+                }
+            });
+
+            $(document).ready(function () {
+                $('#photoImg').zoom();
+            });
+
+        })(jQuery);
+    </script>
+
 }
