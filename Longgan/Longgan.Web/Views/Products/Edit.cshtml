@@ -93,6 +93,7 @@
                 items.Add(new SelectListItem { Text = "控制系列", Value = "KZ", Selected = Model.Type == "KZ" });
                 items.Add(new SelectListItem { Text = "电器元件", Value = "DQ", Selected = Model.Type == "DQ" });
                 items.Add(new SelectListItem { Text = "空调产品", Value = "KT", Selected = Model.Type == "KT" });
+                items.Add(new SelectListItem { Text = "高温空气源（电镀槽专用）", Value = "GW", Selected = Model.Type == "GW" });
                 }
 
                 @Html.DropDownList("PType", @items, new { @class = "form-control" })
