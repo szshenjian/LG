@@ -2418,6 +2418,15 @@
 		padding: 0;
 	}
 	
+    .showbox {
+        float: left;
+        list-style-type: none;
+        margin-bottom: 1rem;
+        margin-left: 1rem;
+        margin-right: 1rem;
+        width: 48%;
+    }
+
 	.gallery-box-show {padding-left:0; margin:0px 0 20px 0; list-style:none;}
 	.gallery-box-show li {padding:0; margin-bottom:11px;}
 	.gallery-box-hide {

@@ -321,6 +321,12 @@
     <Content Include="Content\rs-plugin\videojs\video.dev.js" />
     <Content Include="Content\rs-plugin\videojs\video.js" />
     <Content Include="Content\style.css" />
+    <Content Include="Content\swipebox\css\swipebox.css" />
+    <Content Include="Content\swipebox\img\icons.png" />
+    <Content Include="Content\swipebox\img\icons.svg" />
+    <Content Include="Content\swipebox\img\loader.gif" />
+    <Content Include="Content\swipebox\js\jquery.swipebox.min.js" />
+    <Content Include="Content\zoom.css" />
     <Content Include="Content\zoombox.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\fontawesome-webfont.svg" />
@@ -466,6 +472,7 @@
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\jquery.zoom.min.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\modernizr.custom.js" />
     <Content Include="Scripts\npm.js" />
@@ -533,6 +540,7 @@
     <Content Include="Views\Messages\Edit.cshtml" />
     <Content Include="Views\Messages\Index.cshtml" />
     <Content Include="Views\Home\AfterSale.cshtml" />
+    <Content Include="Views\Home\Show.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

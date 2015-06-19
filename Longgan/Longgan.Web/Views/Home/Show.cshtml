@@ -1,0 +1,68 @@
+﻿<link rel="stylesheet" href="~/Content/swipebox/css/swipebox.css" type="text/css">
+
+<section class="colon14">
+    <div class="singleheader">
+        <div class="container">
+            <div class="col-lg-6 col-sm-6 col-md-6">
+                <div class="single-title">
+                    <h3>解决方案</h3>
+                </div>
+            </div>
+            <div class="col-lg-6 col-sm-6 col-md-6">
+                <div class="breadcrumb-container">
+                    <ul class="breadcrumb">
+                        <li>@Html.ActionLink("首页", "Index")</li>
+                        <li>@Html.ActionLink("产品展示", "ProductsList")</li>
+                        <li class="active">解决方案</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <section class="container" id="exemple">
+        <div class="wrap small-width">
+            <div id="try"></div>
+            <ul id="box-container">
+                <li class="showbox">@*~/images/move3.jpg*@
+                    <a rel="gallery-1" title="地源热泵" class="swipebox" href="~/LGFile/DY5.jpg">
+                        <img alt="image" src="~/LGFile/DY5.jpg">
+                    </a>
+                </li>
+                <li class="showbox">
+                    <a rel="gallery-1" title="地源热泵" class="swipebox" href="~/LGFile/DY6.jpg">
+                        <img alt="image" src="~/LGFile/DY6.jpg">
+                    </a>
+                </li>
+                <li class="showbox">
+                    <a rel="gallery-1" title="地源热泵" class="swipebox" href="~/LGFile/DY7.jpg">
+                        <img alt="image" src="~/LGFile/DY7.jpg">
+                    </a>
+                </li>
+                <li class="showbox">
+                    <a rel="gallery-1" title="地源热泵" class="swipebox" href="~/LGFile/DY8.jpg">
+                        <img alt="image" src="~/LGFile/DY8.jpg">
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </section>
+
+</section>
+
+
+@section Scripts {
+
+    @Scripts.Render("~/Content/swipebox/js/jquery.swipebox.min.js");
+    
+    <script>
+        (function ($) {
+
+            $('.swipebox').swipebox({
+                loopAtEnd: true
+            });
+
+        })(jQuery);
+    </script>
+}

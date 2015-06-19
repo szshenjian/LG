@@ -64,7 +64,15 @@
                         }
                         <div class="col2">
                             <ul>
-                                <li class="title"><h5>@typeDisplay</h5></li>
+                                @if (p == "DY")
+                                {
+                                    <li class="title"><h5>@typeDisplay<a href="@Url.Action("Show")" style="font-size:15px; color:red; display:block; float:right;">解决方案...</a></h5></li>
+                                }
+                                else
+                                {
+                                    <li class="title"><h5>@typeDisplay</h5></li>
+                                }
+
                                 <li>
                                     <div class="widget">
                                         <ul class="recent-posts">
@@ -100,14 +108,15 @@
 
     </li>
     <li>@Html.ActionLink("新闻中心", "News")</li>
-    
+
     <li>
         @Html.ActionLink("安装案例", "Case")
         <ul class="dropdown"><li>@Html.ActionLink("十大优点", "Advantage") </li></ul>
     </li>
 
-    <li>@Html.ActionLink("联系我们", "Contact") 
-    
+    <li>
+        @Html.ActionLink("联系我们", "Contact")
+
         <ul class="dropdown"><li>@Html.ActionLink("售后服务", "AfterSale") </li></ul>
     </li>
 </ul>
