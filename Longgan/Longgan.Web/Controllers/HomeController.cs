@@ -81,11 +81,17 @@ namespace Longgan.Web.Controllers
             return View(scase);
         }
 
-        public ActionResult ProductsList()
+        public ActionResult ProductsList(string type, int? page)
         {
             ProductsLogic pl = new ProductsLogic();
-            List<Product> prs = pl.GetProducts();
-            return View(prs);
+            int pageIndex = page ?? 1;
+            int pageSize = 12;
+            int totalCount = 0;
+            @ViewBag.pageindex = pageIndex;
+            @ViewBag.type = type;
+            List<Product> prs = pl.GetProductsPaging(type, pageIndex, pageSize, ref totalCount);
+            var casesAsIPagedList = new StaticPagedList<Product>(prs, pageIndex, pageSize, totalCount);
+            return View(casesAsIPagedList);
         }
 
         public ActionResult ProductsDetail(string Id)

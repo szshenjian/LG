@@ -1,4 +1,7 @@
-﻿@model List<Longgan.Models.Home.Product>
+﻿@model PagedList.StaticPagedList<Longgan.Models.Home.Product>
+@using PagedList
+@using PagedList.Mvc
+<link rel="stylesheet" type="text/css" href="~/Content/pretty/css/prettyPhoto.css" media="screen" />
 
 <section class="colon14">
     <div class="singleheader">
@@ -21,171 +24,67 @@
     </div>
 
     <!-- START CONTENT AND SIDEBAR -->
-    <div class="container general">
-        <div id="content" class="single col-lg-12 col-md-12 col-sm-12">
-            @*<div class="message text-center">
-                    <h2>Let's see all example <span>portfolio</span> items below</h2>
-                    <p> Lorem ipsum <a href="#">dolor sit amet</a>, consectetur adipisicing elit. Suscipit illo voluptas aperiam repudiandae impedit quidem.</p>
-                </div>*@
+  
 
-            <div class="dm-portfolio">
-                <div class="container">
-                    <nav class="portfolio-filter">
-                        <ul>
-                            <li><a href="#" class="btn btn-general active" data-filter="*">所有产品</a></li>
-                            <li><a href="#" class="btn btn-general" data-filter=".SY">商用型热泵</a></li>
-                            <li><a href="#" class="btn btn-general" data-filter=".JY">家用型热泵</a></li>
-                            <li><a href="#" class="btn btn-general" data-filter=".DY">地源热泵</a></li>
-                            <li><a href="#" class="btn btn-general" data-filter=".KZ">控制系列</a></li>
-                            <li><a href="#" class="btn btn-general" data-filter=".DQ">电器元件</a></li>
-                            <li><a href="#" class="btn btn-general" data-filter=".KT">空调产品</a></li>
-                            <li><a href="#" class="btn btn-general" data-filter=".GW">高温空气源（电镀槽专用）</a></li>
-                        </ul>
-                    </nav>
-                </div> <!--/container -->
-            </div> <!--/dm portfolio -->
+    <div class="col-lg-10 col-md-10 col-sm-10 col-lg-offset-1">
+        <div class="btn-group" role="group">
+            <a href="@Url.Action("ProductsList")" class="btn btn-default">所有产品</a>
+            <a href="@Url.Action("ProductsList", new { type="SY"})" class="btn btn-default">商用型热泵</a>
+            <a href="@Url.Action("ProductsList", new { type="DY"})" class="btn btn-default">地源热泵</a>
+            <a href="@Url.Action("ProductsList", new { type="KZ"})" class="btn btn-default">控制系列</a>
+            <a href="@Url.Action("ProductsList", new { type="DQ"})" class="btn btn-default">电器元件</a>
+            <a href="@Url.Action("ProductsList", new { type="KT"})" class="btn btn-default">空调产品</a>
+            <a href="@Url.Action("ProductsList", new { type="GW"})" class="btn btn-default">高温空气源（电镀槽专用）</a>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+    <div class="divider"></div>
+    <div class="col-lg-12 col-md-12 col-sm-12">
 
-            <div class="clearfix"></div>
-
-            <section class="portfolio">
-                @{
-                    List<Longgan.Models.Home.Product> allProducts = Model;
-                    List<Longgan.Models.Home.Product> SYProducts = Model.FindAll(p => p.Type == "SY").OrderByDescending(p => p.Created).ToList();
-                    List<Longgan.Models.Home.Product> JYProducts = Model.FindAll(p => p.Type == "JY").OrderByDescending(p => p.Created).ToList();
-                    List<Longgan.Models.Home.Product> DYProducts = Model.FindAll(p => p.Type == "DY").OrderByDescending(p => p.Created).ToList();
-                    List<Longgan.Models.Home.Product> KZProducts = Model.FindAll(p => p.Type == "KZ").OrderByDescending(p => p.Created).ToList();
-                    List<Longgan.Models.Home.Product> DQProducts = Model.FindAll(p => p.Type == "DQ").OrderByDescending(p => p.Created).ToList();
-                    List<Longgan.Models.Home.Product> KTProducts = Model.FindAll(p => p.Type == "KT").OrderByDescending(p => p.Created).ToList();
-                    List<Longgan.Models.Home.Product> GWProducts = Model.FindAll(p => p.Type == "GW").OrderByDescending(p => p.Created).ToList();
-                    
-                    string filePath = VirtualPathUtility.ToAbsolute(System.Configuration.ConfigurationManager.AppSettings["fileRoot"]);
-
-                    List<String> pString = new List<string> { "JY", "SY", "DY", "KZ", "DQ", "KT", "GW" };
-                }
-
-                @foreach (string p in pString)
-                {
-                    List<Longgan.Models.Home.Product> lPs = new List<Longgan.Models.Home.Product>();
-                    switch (p)
-                    {
-                        case "SY": lPs = SYProducts;
-                            break;
-                        case "JY": lPs = JYProducts;
-                            break;
-                        case "DY": lPs = DYProducts;
-                            break;
-                        case "KZ": lPs = KZProducts;
-                            break;
-                        case "DQ": lPs = DQProducts;
-                            break;
-                        case "KT": lPs = KTProducts;
-                            break;
-                        case "GW": lPs = GWProducts;
-                            break;
-                    }
-
-                    foreach (Longgan.Models.Home.Product product in lPs)
-                    {
-                        string picPath = string.Format("{0}/{1}", filePath, product.PicName);
-
-                        <div class="col-lg-3 col-md-3 col-sm-6 @p" data-effect="slide-bottom">
-                            <div class="gallery-box">
-                                <a href="@Url.Content(@picPath)" class="zoombox effect-icona" data-biggallery="@p" data-biggallerythumbnail="@Url.Content(@picPath)">
-                                    <img src="@Url.Content(@picPath)" style="height:180px;width:200px;" alt="">
-                                </a>
-                                <div class="gallery-box-titles">
-                                    <h3><i class="icon-folder-open-alt"></i> &nbsp;<a href="@Url.Action("ProductsDetail", new { Id = @product.Id })">@product.Title</a></h3>
-                                </div><!-- gallery-box-titles -->
-                            </div>
-                        </div>
-                    }
-
-                }
+        @*<div>
+                @Html.PagedListPager((PagedList.IPagedList)Model, page => Url.Action("ProductsList", new { page = page, type = @ViewBag.type }), new PagedList.Mvc.PagedListRenderOptions { UlElementClasses = new List<string> { "pagination pagination-sm" }, MaximumPageNumbersToDisplay = 10, Display = PagedList.Mvc.PagedListDisplayMode.IfNeeded })
+            </div>*@
 
 
-            </section>
+        <ul class='gallery clearfix' style='list-style-type: none;padding-left:0px;'>
+            @foreach (var item in Model)
+            {
+                string filePath = VirtualPathUtility.ToAbsolute(System.Configuration.ConfigurationManager.AppSettings["fileRoot"]);
+                string picPath = string.Format("{0}/{1}", filePath, item.PicName);
+                <li style='float:left;padding-right:15px;padding-bottom:15px;'>
+                    <a href='@picPath' alt='@item.Title' rel='prettyPhoto[gallery1]' id="img1">
+                        <img src='@picPath' class='img-thumbnail img-rounded' style='width:200px;height:200px;' alt='@item.Title' />
+                    </a>
+                    <div class="gallery-box-link" style="text-align:center;">
+                        <h5>@Html.ActionLink(item.Title, "ProductsDetail", new { Id = item.Id })</h5>
+                    </div>
+                </li>
+            }
+        </ul>
 
-            <div class="clearfix"></div>
+        <div>
+            @Html.PagedListPager((PagedList.IPagedList)Model, page => Url.Action("ProductsList", new { page = page, type = @ViewBag.type }), new PagedList.Mvc.PagedListRenderOptions { UlElementClasses = new List<string> { "pagination pagination-sm" }, MaximumPageNumbersToDisplay = 10, Display = PagedList.Mvc.PagedListDisplayMode.IfNeeded })
+        </div>
 
-        </div><!-- end content -->
+
+    </div><!-- end content -->
     </div><!-- end container -->
     <!-- END CONTENT -->
 
 </section><!-- end colon1 -->
 @section Scripts {
+    @Scripts.Render("~/Scripts/jquery.prettyPhoto.js");
     <script>
-        // Portfolio
-        (function ($)
+        $(function ()
         {
-            "use strict";
-            var $container = $('.portfolio'),
-				$items = $container.find('.portfolio-columns'),
-				portfolioLayout = 'fitRows';
-
-            if ($container.hasClass('portfolio-centered'))
-            {
-                portfolioLayout = 'masonry';
-            }
-
-            $container.isotope({
-                filter: '*',
-                animationEngine: 'best-available',
-                layoutMode: portfolioLayout,
-                animationOptions: {
-                    duration: 750,
-                    easing: 'linear',
-                    queue: false
-                },
-                masonry: {
-
-                }
-            }, refreshWaypoints());
-
-            function refreshWaypoints()
-            {
-                setTimeout(function ()
-                {
-                }, 1000);
-            }
-
-            $('nav.portfolio-filter ul a').on('click', function ()
-            {
-                var selector = $(this).attr('data-filter');
-                $container.isotope({ filter: selector }, refreshWaypoints());
-                $('nav.portfolio-filter ul a').removeClass('active');
-                $(this).addClass('active');
-                return false;
+            $("a[rel^='prettyPhoto']").prettyPhoto({
+                show_title: true,
+                default_width: 800,
+                default_height: 600,
+                allow_resize: true
             });
 
-            function setColumns()
-            {
-                var winWidth = $(window).width(),
-                columnNumber = getColumnNumber(),
-                itemWidth = Math.floor(winWidth / columnNumber);
 
-                $container.find('.portfolio-columns').each(function ()
-                {
-                    $(this).css({
-                        width: itemWidth + 'px'
-                    });
-                });
-            }
-
-            function setPortfolio()
-            {
-                setColumns();
-                $container.isotope('reLayout');
-            }
-
-            $container.imagesLoaded(function ()
-            {
-                setPortfolio();
-            });
-
-            $(window).on('resize', function ()
-            {
-                setPortfolio();
-            });
-        })(jQuery);
+        })
     </script>
 }
