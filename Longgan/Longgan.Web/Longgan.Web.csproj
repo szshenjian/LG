@@ -417,6 +417,16 @@
     <Content Include="images\qqContact.png" />
     <Content Include="images\qqonline.png" />
     <Content Include="images\search.png" />
+    <Content Include="images\shuire1.jpg" />
+    <Content Include="images\shuire1s.jpg" />
+    <Content Include="images\shuire2.jpg" />
+    <Content Include="images\shuire2s.jpg" />
+    <Content Include="images\shuire3.jpg" />
+    <Content Include="images\shuire3s.jpg" />
+    <Content Include="images\shuire4.jpg" />
+    <Content Include="images\shuire4s.jpg" />
+    <Content Include="images\shuire5.jpg" />
+    <Content Include="images\shuire5s.jpg" />
     <Content Include="images\side_nav_bg.png" />
     <Content Include="images\singleheader.png" />
     <Content Include="images\star-off.png" />
@@ -541,6 +551,11 @@
     <Content Include="Views\Messages\Index.cshtml" />
     <Content Include="Views\Home\AfterSale.cshtml" />
     <Content Include="Views\Home\Show.cshtml" />
+    <Content Include="Views\Home\P1.cshtml" />
+    <Content Include="Views\Home\P2.cshtml" />
+    <Content Include="Views\Home\P3.cshtml" />
+    <Content Include="Views\Home\P4.cshtml" />
+    <Content Include="Views\Home\P5.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

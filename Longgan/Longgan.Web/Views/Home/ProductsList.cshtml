@@ -24,7 +24,7 @@
     </div>
 
     <!-- START CONTENT AND SIDEBAR -->
-  
+
 
     <div class="col-lg-10 col-md-10 col-sm-10 col-lg-offset-1">
         <div class="btn-group" role="group">
@@ -47,6 +47,50 @@
 
 
         <ul class='gallery clearfix' style='list-style-type: none;padding-left:0px;'>
+            @if (@ViewBag.type == "DY")
+            {
+                <li style='float:left;padding-right:15px;padding-bottom:15px;'>
+                    <a href='@Url.Action("P1")'>
+                        <img src='~/images/shuire1s.jpg' class='img-thumbnail img-rounded' style='width:200px;height:200px;' />
+                    </a>
+                    <div class="gallery-box-link" style="text-align:center;">
+                        <h5>@Html.ActionLink("申银集团", "P1", "")</h5>
+                    </div>
+                </li>
+                <li style='float:left;padding-right:15px;padding-bottom:15px;'>
+                    <a href='@Url.Action("P2")'>
+                        <img src='~/images/shuire2s.jpg' class='img-thumbnail img-rounded' style='width:200px;height:200px;' />
+                    </a>
+                    <div class="gallery-box-link" style="text-align:center;">
+                        <h5>@Html.ActionLink("申银集团", "P2", "")</h5>
+                    </div>
+                </li>
+                <li style='float:left;padding-right:15px;padding-bottom:15px;'>
+                    <a href='@Url.Action("P3")'>
+                        <img src='~/images/shuire3s.jpg' class='img-thumbnail img-rounded' style='width:200px;height:200px;' />
+                    </a>
+                    <div class="gallery-box-link" style="text-align:center;">
+                        <h5>@Html.ActionLink("申银集团", "P3", "")</h5>
+                    </div>
+                </li>
+                <li style='float:left;padding-right:15px;padding-bottom:15px;'>
+                    <a href='@Url.Action("P4")'>
+                        <img src='~/images/shuire4s.jpg' class='img-thumbnail img-rounded' style='width:200px;height:200px;' />
+                    </a>
+                    <div class="gallery-box-link" style="text-align:center;">
+                        <h5>@Html.ActionLink("申银集团", "P4", "")</h5>
+                    </div>
+                </li>
+                <li style='float:left;padding-right:15px;padding-bottom:15px;'>
+                    <a href='@Url.Action("P5")'>
+                        <img src='~/images/shuire5s.jpg' class='img-thumbnail img-rounded' style='width:200px;height:200px;' />
+                    </a>
+                    <div class="gallery-box-link" style="text-align:center;">
+                        <h5>@Html.ActionLink("申银集团", "P5", "")</h5>
+                    </div>
+                </li>
+            }
+
             @foreach (var item in Model)
             {
                 string filePath = VirtualPathUtility.ToAbsolute(System.Configuration.ConfigurationManager.AppSettings["fileRoot"]);
@@ -60,6 +104,7 @@
                     </div>
                 </li>
             }
+
         </ul>
 
         <div>

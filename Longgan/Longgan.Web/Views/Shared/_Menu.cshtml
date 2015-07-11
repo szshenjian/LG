@@ -4,7 +4,8 @@
         @Html.ActionLink("公司简介", "About")
     </li>
     <li>
-        @Html.ActionLink("产品展示", "ProductsList")
+        @*@Html.ActionLink("产品展示", "ProductsList")*@
+        <a href="#">产品展示</a>
         <div class="megamenu full-width">
             <div class="row">
 
@@ -64,34 +65,67 @@
                         }
                         <div class="col2">
                             <ul>
-                                @if (p == "DY")
-                                {
-                                    <li class="title"><h5>@typeDisplay<a href="@Url.Action("Show")" style="font-size:15px; color:red; display:block; float:right;">解决方案...</a></h5></li>
-                                }
-                                else
-                                {
-                                    <li class="title"><h5>@typeDisplay</h5></li>
-                                }
+                                <li class="title"><h5>@typeDisplay</h5></li>
+
 
                                 <li>
                                     <div class="widget">
                                         <ul class="recent-posts">
-
-                                            @foreach (Longgan.Models.Home.Product product in lPs)
+                                            @if (p == "DY")
                                             {
-                                                string picPath = string.Format("{0}/{1}", filePath, product.PicName);
                                                 <li>
                                                     <div class="recent-posts-img">
-                                                        <a href="@Url.Action("ProductsDetail", new { Id = @product.Id })" title="" rel="bookmark">
-                                                            <img style="width:60px;height:60px;" src="@Url.Content(@picPath)" alt="" />
+                                                        <a href="@Url.Action("P1")" title="" rel="bookmark">
+                                                            <img style="width:60px;height:60px;" src="~/images/shuire1s.jpg" alt="" />
                                                         </a>
                                                     </div>
                                                     <div class="recent-posts-content">
-                                                        <a href="@Url.Action("ProductsDetail", new { Id = @product.Id })"><p>@product.Title</p></a>
+                                                        <a href="@Url.Action("P1")"><p>申银集团</p></a>
+                                                    </div>
+
+                                                </li>
+                                                <li>
+                                                    <div class="recent-posts-img">
+                                                        <a href="@Url.Action("P2")" title="" rel="bookmark">
+                                                            <img style="width:60px;height:60px;" src="~/images/shuire2s.jpg" alt="" />
+                                                        </a>
+                                                    </div>
+                                                    <div class="recent-posts-content">
+                                                        <a href="@Url.Action("P2")"><p>申银集团</p></a>
+                                                    </div>
+
+                                                </li>
+                                                <li>
+                                                    <div class="recent-posts-img">
+                                                        <a href="@Url.Action("P5")" title="" rel="bookmark">
+                                                            <img style="width:60px;height:60px;" src="~/images/shuire5s.jpg" alt="" />
+                                                        </a>
+                                                    </div>
+                                                    <div class="recent-posts-content">
+                                                        <a href="@Url.Action("P5")"><p>申银集团</p></a>
                                                     </div>
 
                                                 </li>
                                             }
+                                            else
+                                            {
+                                                foreach (Longgan.Models.Home.Product product in lPs)
+                                                {
+                                                    string picPath = string.Format("{0}/{1}", filePath, product.PicName);
+                                                    <li>
+                                                        <div class="recent-posts-img">
+                                                            <a href="@Url.Action("ProductsDetail", new { Id = @product.Id })" title="" rel="bookmark">
+                                                                <img style="width:60px;height:60px;" src="@Url.Content(@picPath)" alt="" />
+                                                            </a>
+                                                        </div>
+                                                        <div class="recent-posts-content">
+                                                            <a href="@Url.Action("ProductsDetail", new { Id = @product.Id })"><p>@product.Title</p></a>
+                                                        </div>
+
+                                                    </li>
+                                                }
+                                            }
+
                                         </ul>
                                     </div>
                                 </li>
@@ -111,12 +145,12 @@
 
     <li>
         @Html.ActionLink("安装案例", "Case")
-        <ul class="dropdown"><li>@Html.ActionLink("十大优点", "Advantage") </li></ul>
-    </li>
 
+    </li>
+    <li>@Html.ActionLink("十大优点", "Advantage") </li>
     <li>
         @Html.ActionLink("联系我们", "Contact")
 
-        <ul class="dropdown"><li>@Html.ActionLink("售后服务", "AfterSale") </li></ul>
     </li>
+    <li>@Html.ActionLink("售后服务", "AfterSale") </li>
 </ul>

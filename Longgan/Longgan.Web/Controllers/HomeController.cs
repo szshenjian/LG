@@ -110,5 +110,28 @@ namespace Longgan.Web.Controllers
         {
             return View();
         }
+
+        public ActionResult P1()
+        {
+            return View();
+        }
+        public ActionResult P2()
+        {
+            return View();
+        }
+        public ActionResult P3()
+        {
+            return View();
+        }
+
+        public ActionResult P4()
+        {
+            return View();
+        }
+
+        public ActionResult P5()
+        {
+            return View();
+        }
     }
 }
