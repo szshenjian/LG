@@ -36,9 +36,9 @@
         <!-- START CONTENT AND SIDEBAR -->
         <div class="container">
 
-            <div id="content" class="single col-lg-12 col-md-12 col-sm-12">                
+            <div id="content" class="single col-lg-12 col-md-12 col-sm-6">                
 
-                <ul class='gallery clearfix' style='list-style-type: none;padding-left:0px;'>
+                <ul class='gallery clearfix' style='list-style-type: none;padding-left:40px;'>
                     @foreach (var item in Model)
                     {
                         string filePath = VirtualPathUtility.ToAbsolute(System.Configuration.ConfigurationManager.AppSettings["fileRoot"]);
@@ -66,7 +66,6 @@
 
     </section><!-- end colon1 -->
 
-    <div class="dmtop">Scroll to Top</div>
 </div>
 
 @section Scripts {
@@ -77,12 +76,29 @@
     <script type="text/javascript">
         $(function ()
         {
-            $("a[rel^='prettyPhoto']").prettyPhoto({
-                show_title: true,
-                default_width: 800,
-                default_height: 600,
-                allow_resize: false
-            });
+            var sUserAgent = navigator.userAgent.toLowerCase();
+            var bIsIpad = sUserAgent.match(/ipad/i) == "ipad";
+            var bIsIphoneOs = sUserAgent.match(/iphone os/i) == "iphone os";
+            var bIsMidp = sUserAgent.match(/midp/i) == "midp";
+            var bIsUc7 = sUserAgent.match(/rv:1.2.3.4/i) == "rv:1.2.3.4";
+            var bIsUc = sUserAgent.match(/ucweb/i) == "ucweb";
+            var bIsAndroid = sUserAgent.match(/android/i) == "android";
+            var bIsCE = sUserAgent.match(/windows ce/i) == "windows ce";
+            var bIsWM = sUserAgent.match(/windows mobile/i) == "windows mobile";
+            //document.writeln("您的浏览设备为：");
+            if (bIsIpad || bIsIphoneOs || bIsMidp || bIsUc7 || bIsUc || bIsAndroid || bIsCE || bIsWM)
+            {
+                //document.writeln("phone");
+            } else
+            {
+
+                $("a[rel^='prettyPhoto']").prettyPhoto({
+                    show_title: true,
+                    default_width: 800,
+                    default_height: 600,
+                    allow_resize: false
+                });
+            }
 
             $('#img1').jqzoom({
                 //                zoomType: 'reverse',

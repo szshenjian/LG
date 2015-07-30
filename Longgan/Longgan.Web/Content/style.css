@@ -4720,7 +4720,7 @@ blockquote.pull-right {
     .menu {
         position: relative;
         float: left;
-        width: 33.33%;
+        width: 25%;
         height: 50px;
         line-height: 50px;
         background: #fff;
