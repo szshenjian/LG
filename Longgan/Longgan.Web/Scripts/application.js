@@ -76,9 +76,9 @@
 
 // Preloader
 	$(window).load(function() {
-		$('#status').delay(300).fadeOut('slow');
-		$('#preloader').delay(300).fadeOut('slow');
-		$('body').delay(300).css({'overflow':'visible'});
+		//$('#status').delay(300).fadeOut('slow');
+		//$('#preloader').delay(300).fadeOut('slow');
+		//$('body').delay(300).css({'overflow':'visible'});
 	})
 
 })(jQuery);

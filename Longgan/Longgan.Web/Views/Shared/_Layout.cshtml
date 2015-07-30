@@ -11,11 +11,11 @@
 
 </head>
 <body>
-    <div id="preloader">
+    @*<div id="preloader">
         <div id="status">
             &nbsp;
         </div>
-    </div>
+    </div>*@
     <div id="wrapper">
         @*<div class="topbar">
                     <div class="container">
@@ -42,18 +42,57 @@
                     <a class="" href="@Url.Action("Index")"><img src="~/images/logo_new.png" style="height:80px;" alt="苏州陇赣机电工程有限公司"></a>
                 </div>
                 <div class="col-lg-9 col-md-9 col-sm-12" style="padding-top:2%;">
-                    <div class="col-lg-3 col-lg-offset-3 col-md-0 col-sm-0 text-right"><h4><i class="icon-phone-sign"></i>&nbsp;&nbsp;服务热线：</h4></div>
+                    <div class="col-lg-3 col-lg-offset-3 col-md-0 col-sm-0 text-right hideInMobile"><h4><i class="icon-phone-sign"></i>&nbsp;&nbsp;服务热线：</h4></div>
                     <div class="col-lg-1"><h4 style="color:#289DCC;">13812755349&nbsp;15050101075</h4></div>
 
                 </div>
                 <div class="col-lg-12 col-md-12 col-sm-12 col-lg-offset-1" style="padding-top:0;">
-                    <nav style="padding-top:0;">
+                    <nav style="padding-top:0;" class="hideInMobile">
                         @Html.Partial("_Menu")
                     </nav><!-- /nav -->
                 </div>
             </div>
         </header><!-- /header wrapper -->
         @RenderBody()
+
+        <div class="btn3 clearfix displayInMobile">
+
+            <div class="menu">
+                <div class="bt-name">@Html.ActionLink("网站首页", "Index")</div>
+            </div><!--menu-->
+            
+            <div class="menu">
+                <div class="bt-name">产品&服务</div>
+                <div class="sanjiao"></div>
+                <div class="new-sub">
+                    <ul>
+                        <li>@Html.ActionLink("产品列表", "ProductsList")</li>
+                        <li>@Html.ActionLink("安装案例", "Case")</li>
+                        <li>@Html.ActionLink("售后服务", "AfterSale")</li>
+                    </ul>
+                    <div class="tiggle"></div>
+                    <div class="innertiggle"></div>
+                </div>
+
+            </div><!--menu-->
+
+
+            <div class="menu">
+                <div class="bt-name">关于我们</div>
+                <div class="sanjiao"></div>
+                <div class="new-sub">
+                    <ul>
+                        <li>@Html.ActionLink("公司简介", "About")</li>
+                        <li>@Html.ActionLink("联系我们", "Contact")</li>
+                        <li>@Html.ActionLink("十大优点", "Advantage")</li>
+                        @*<li>@Html.ActionLink("新闻中心", "News")</li>*@
+                    </ul>
+                    <div class="tiggle"></div>
+                    <div class="innertiggle"></div>
+                </div>
+            </div><!--menu-->
+
+        </div>
 
         <footer class="footer-wrapper">
             <div class="container">
@@ -100,10 +139,10 @@
                     </div>*@
             </div>
         </div>
-        <div class="dmtop">Scroll to Top</div>
+        <div class="dmtop hideInMobile">Scroll to Top</div>
     </div><!-- /wrapper -->
 
-    <div id="floatTools" class="rides-cs" style="height:288px;">
+    <div id="floatTools" class="rides-cs hideInMobile" style="height:288px;">
         <div class="floatL">
             <a id="aFloatTools_Show" class="btnOpen" title="查看在线客服" style="top:55px;display:block" href="javascript:void(0);">展开</a>
             <a id="aFloatTools_Hide" class="btnCtn" title="关闭在线客服" style="top:55px;display:none" href="javascript:void(0);">收缩</a>
@@ -199,6 +238,21 @@
             });
         });
 
+        //弹出垂直菜单
+        $(".menu").click(function ()
+        {
+            if ($(this).hasClass("cura"))
+            {
+                $(this).children(".new-sub").hide(); //当前菜单下的二级菜单隐藏
+                $(".menu").removeClass("cura"); //同一级的菜单项
+            } else
+            {
+                $(".menu").removeClass("cura"); //移除所有的样式
+                $(this).addClass("cura"); //给当前菜单添加特定样式
+                $(".menu").children(".new-sub").slideUp("fast"); //隐藏所有的二级菜单
+                $(this).children(".new-sub").slideDown("fast"); //展示当前的二级菜单
+            }
+        });
     </script>
 
 
