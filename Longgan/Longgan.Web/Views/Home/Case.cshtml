@@ -36,9 +36,9 @@
         <!-- START CONTENT AND SIDEBAR -->
         <div class="container">
 
-            <div id="content" class="single col-lg-12 col-md-12 col-sm-6">                
+            <div id="content" class="single col-lg-12 col-md-12 col-sm-12">
 
-                <ul class='gallery clearfix' style='list-style-type: none;padding-left:40px;'>
+                <ul class='gallery clearfix hideInMobile' style='list-style-type: none;padding-left:40px;'>
                     @foreach (var item in Model)
                     {
                         string filePath = VirtualPathUtility.ToAbsolute(System.Configuration.ConfigurationManager.AppSettings["fileRoot"]);
@@ -54,6 +54,24 @@
                     }
                 </ul>
 
+                <div class="displayInMobile">
+                    @foreach (var item in Model)
+                    {
+                        string filePath = VirtualPathUtility.ToAbsolute(System.Configuration.ConfigurationManager.AppSettings["fileRoot"]);
+                        string picPath = string.Format("{0}/{1}", filePath, item.PicName);
+                        <div class="col-lg-3 col-md-3 col-sm-3">
+                            <div class="gallery-box">
+                                <a href="@picPath" class="zoombox effect-icona" data-biggallery="123" data-biggallerythumbnail="@picPath">
+                                    <img class="img-thumbnail" src="@picPath" alt="">
+                                </a>
+
+                                <div class="gallery-box-titles">
+                                    <h3>@Html.ActionLink(item.Title, "CaseDetail", new { Id = item.Id })</h3>
+                                </div><!-- gallery-box-titles -->
+                            </div>
+                        </div>
+                    }
+                </div>
                 <div>
                     @Html.PagedListPager((PagedList.IPagedList)Model, page => Url.Action("Case", new { page = page }), new PagedList.Mvc.PagedListRenderOptions { UlElementClasses = new List<string> { "pagination pagination-sm" }, MaximumPageNumbersToDisplay = 10, Display = PagedList.Mvc.PagedListDisplayMode.IfNeeded })
                 </div>
@@ -71,9 +89,15 @@
 @section Scripts {
     @Scripts.Render("~/Content/rs-plugin/js/jquery.themepunch.plugins.min.js");
     @Scripts.Render("~/Content/rs-plugin/js/jquery.themepunch.revolution.min.js");
-@Scripts.Render("~/Scripts/jquery.prettyPhoto.js");
+    @Scripts.Render("~/Scripts/jquery.prettyPhoto.js");
     @Scripts.Render("~/Scripts/jquery.jqzoom-core.js");
     <script type="text/javascript">
+        jQuery(document).ready(function ($)
+        {
+            $(".zoombox").zoomBox();
+        });
+
+
         $(function ()
         {
             var sUserAgent = navigator.userAgent.toLowerCase();
