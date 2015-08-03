@@ -4739,7 +4739,7 @@ blockquote.pull-right {
         z-index: 10;
         width: 100%;
         padding: 0px 10px;
-        background: #fff;
+        background: #289DCC;
         box-sizing: border-box;
         -webkit-box-sizing: border-box;
         border: 1px solid #EEEEEE;
@@ -4749,7 +4749,7 @@ blockquote.pull-right {
 
         .new-sub li {
             width: 100%;
-            background: #fff;
+            background: #289DCC;
             float: none;
             box-sizing: border-box;
             -webkit-box-sizing: border-box;
@@ -4760,9 +4760,8 @@ blockquote.pull-right {
                 display: block;
                 height: 50px;
                 line-height: 50px;
-                text-align: left;
-                background: #fff;
-                color: #333;
+                text-align: left;                
+                color: #fff;
                 border: none;
                 text-align: center;
                 font-size: 16px;
@@ -4775,20 +4774,21 @@ blockquote.pull-right {
         width: 0;
         height: 0;
         border: 5px solid transparent;
-        border-right: 5px solid #000;
-        border-bottom: 5px solid #000;
+        border-right: 5px solid #fff;
+        border-bottom: 5px solid #fff;
         opacity: .5;
     }
 
     .bt-name {
         font-size: 16px;
-        color: #000;
+        color: #fff;
+        background:#289DCC;
     }
 
         .bt-name a {
             display: block;
             font-size: 16px;
-            color: #000;
+            color: #fff;
         }
 
     .new-sub .tiggle {
@@ -4811,7 +4811,7 @@ blockquote.pull-right {
         left: 50%;
         margin-left: -9px;
         bottom: -8px;
-        border-top: 9px solid white;
+        border-top: 9px solid #289DCC;
         border-left: 9px solid transparent;
         border-right: 9px solid transparent;
         z-index: 11;
