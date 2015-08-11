@@ -11,7 +11,7 @@ namespace Longgan.DataAccess.Home
     {
         public List<Product> GetProducts()
         {
-            return base.Get().OrderByDescending(p => p.Created).ToList();
+            return base.Get().OrderBy(p => p.Created).ToList();
         }
 
         public List<Product> GetProductsByType(string type)
