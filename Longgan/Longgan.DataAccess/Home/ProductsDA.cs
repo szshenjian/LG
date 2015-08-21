@@ -11,12 +11,12 @@ namespace Longgan.DataAccess.Home
     {
         public List<Product> GetProducts()
         {
-            return base.Get().OrderByDescending(p => p.PriorityNum).OrderBy(p => p.Created).ToList();
+            return base.Get().OrderByDescending(p => p.PriorityNum).ToList();
         }
 
         public List<Product> GetProductsByType(string type)
         {
-            return base.Get(p => p.Type == type).OrderByDescending(p => p.PriorityNum).OrderByDescending(p => p.Created).ToList();
+            return base.Get(p => p.Type == type).OrderByDescending(p => p.PriorityNum).ToList();
         }
 
         public Product GetProduct(string Id)
