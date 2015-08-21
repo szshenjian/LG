@@ -66,6 +66,10 @@
     <Compile Include="Migrations\201505300253245_UpdateProduct.Designer.cs">
       <DependentUpon>201505300253245_UpdateProduct.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201508210828506_productAddPriority.cs" />
+    <Compile Include="Migrations\201508210828506_productAddPriority.Designer.cs">
+      <DependentUpon>201508210828506_productAddPriority.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository.cs" />
@@ -89,6 +93,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201505300253245_UpdateProduct.resx">
       <DependentUpon>201505300253245_UpdateProduct.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201508210828506_productAddPriority.resx">
+      <DependentUpon>201508210828506_productAddPriority.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

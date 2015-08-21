@@ -28,6 +28,7 @@ namespace Longgan.Models.Home
         [StringLength(100)]
         [Display(Name = "类型")]
         public string Type { get; set; }
+        public int PriorityNum { get; set; }
         [Display(Name = "时间")]
         public DateTime Created { get; set; }
     }
