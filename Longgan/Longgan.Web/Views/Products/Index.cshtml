@@ -16,6 +16,9 @@
             @Html.DisplayNameFor(model => model.Title)
         </th>
         <th>
+            @Html.DisplayNameFor(model => model.PriorityNum)
+        </th>
+        <th>
             @Html.DisplayNameFor(model => model.Content)
         </th>
         <th>
@@ -40,6 +43,9 @@
         <tr>
             <td>
                 @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PriorityNum)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Content)
