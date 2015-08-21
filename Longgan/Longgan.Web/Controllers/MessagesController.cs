@@ -19,12 +19,22 @@ namespace Longgan.Web.Controllers
         // GET: Messages
         public ActionResult Index()
         {
+            if (Session["Login"] == null || !(bool)Session["Login"])
+            {
+                return RedirectToAction("Login", "Account");
+            }
+
             return View(logic.GetMessages());
         }
 
         // GET: Messages/Details/5
         public ActionResult Details(string id)
         {
+            if (Session["Login"] == null || !(bool)Session["Login"])
+            {
+                return RedirectToAction("Login", "Account");
+            }
+
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -40,6 +50,11 @@ namespace Longgan.Web.Controllers
         // GET: Messages/Create
         public ActionResult Create()
         {
+            if (Session["Login"] == null || !(bool)Session["Login"])
+            {
+                return RedirectToAction("Login", "Account");
+            }
+
             return View();
         }
 
@@ -50,6 +65,11 @@ namespace Longgan.Web.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "Id,Name,Email,Phone,Title,Content,Created")] Message message)
         {
+            if (Session["Login"] == null || !(bool)Session["Login"])
+            {
+                return RedirectToAction("Login", "Account");
+            }
+
             if (ModelState.IsValid)
             {
                 logic.AddMessage(message);
@@ -62,6 +82,11 @@ namespace Longgan.Web.Controllers
         // GET: Messages/Edit/5
         public ActionResult Edit(string id)
         {
+            if (Session["Login"] == null || !(bool)Session["Login"])
+            {
+                return RedirectToAction("Login", "Account");
+            }
+
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -81,6 +106,11 @@ namespace Longgan.Web.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "Id,Name,Email,Phone,Title,Content,Created")] Message message)
         {
+            if (Session["Login"] == null || !(bool)Session["Login"])
+            {
+                return RedirectToAction("Login", "Account");
+            }
+
             if (ModelState.IsValid)
             {
                 logic.UpdateMessage(message);
@@ -92,6 +122,11 @@ namespace Longgan.Web.Controllers
         // GET: Messages/Delete/5
         public ActionResult Delete(string id)
         {
+            if (Session["Login"] == null || !(bool)Session["Login"])
+            {
+                return RedirectToAction("Login", "Account");
+            }
+
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -109,6 +144,11 @@ namespace Longgan.Web.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(string id)
         {
+            if (Session["Login"] == null || !(bool)Session["Login"])
+            {
+                return RedirectToAction("Login", "Account");
+            }
+
             Message message = logic.GetMessage(id);
             logic.RemoveMessage(message);
             return RedirectToAction("Index");

@@ -15,7 +15,7 @@ namespace Longgan.Web
 
             routes.MapRoute(
                 "",
-                "guanli",
+                "GuanLi",
                 new { controller = "Products", action = "Index" },
                 new string[] { "Longgan.Web.Controllers" }
             );

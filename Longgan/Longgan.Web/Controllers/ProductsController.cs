@@ -18,15 +18,26 @@ namespace Longgan.Web.Controllers
     {
         private ApplicationDbContext db = new ApplicationDbContext();
         ProductsLogic logic = new ProductsLogic();
+
         // GET: Products
         public ActionResult Index()
         {
+            if (Session["Login"] == null || !(bool)Session["Login"])
+            {
+                return RedirectToAction("Login", "Account");
+            }
+
             return View(logic.GetProducts());
         }
 
         // GET: Products/Details/5
         public ActionResult Details(string id)
         {
+            if (Session["Login"] == null || !(bool)Session["Login"])
+            {
+                return RedirectToAction("Login", "Account");
+            }
+
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -42,6 +53,11 @@ namespace Longgan.Web.Controllers
         // GET: Products/Create
         public ActionResult Create()
         {
+            if (Session["Login"] == null || !(bool)Session["Login"])
+            {
+                return RedirectToAction("Login", "Account");
+            }
+
             return View();
         }
 
@@ -51,6 +67,11 @@ namespace Longgan.Web.Controllers
         [HttpPost]
         public ActionResult Create([Bind(Include = "Id,Title,Content,PicName,IntroName,Type,Created")] Product product, FormCollection fc)
         {
+            if (Session["Login"] == null || !(bool)Session["Login"])
+            {
+                return RedirectToAction("Login", "Account");
+            }
+
             string filePath = Server.MapPath(ConfigurationManager.AppSettings["fileRoot"]);
 
             if (!Directory.Exists(filePath))
@@ -97,6 +118,11 @@ namespace Longgan.Web.Controllers
         // GET: Products/Edit/5
         public ActionResult Edit(string id)
         {
+            if (Session["Login"] == null || !(bool)Session["Login"])
+            {
+                return RedirectToAction("Login", "Account");
+            }
+
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -116,6 +142,11 @@ namespace Longgan.Web.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "Id,Title,Content,PicName,IntroName,Type,Created")] Product product, FormCollection fm)
         {
+            if (Session["Login"] == null || !(bool)Session["Login"])
+            {
+                return RedirectToAction("Login", "Account");
+            }
+
             if (ModelState.IsValid)
             {
                 Product oriProduct = logic.GetProduct(product.Id);
@@ -175,6 +206,11 @@ namespace Longgan.Web.Controllers
         // GET: Products/Delete/5
         public ActionResult Delete(string id)
         {
+            if (Session["Login"] == null || !(bool)Session["Login"])
+            {
+                return RedirectToAction("Login", "Account");
+            }
+
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -192,6 +228,11 @@ namespace Longgan.Web.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(string id)
         {
+            if (Session["Login"] == null || !(bool)Session["Login"])
+            {
+                return RedirectToAction("Login", "Account");
+            }
+
             Product product = logic.GetProduct(id);
             logic.RemoveProduct(product);
             return RedirectToAction("Index");
