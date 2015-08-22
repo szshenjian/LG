@@ -52,144 +52,144 @@
 
             <ul class='gallery clearfix hideInMobile' style='list-style-type: none;'>
                 @if (@ViewBag.type == "DY")
-            {
-            <li style='float:left;padding-right:15px;padding-bottom:15px;'>
-                <a href='@Url.Action("P1")'>
-                    <img src='~/images/shuire1s.jpg' class='img-thumbnail img-rounded' style='width:200px;height:200px;' />
-                </a>
-                <div class="gallery-box-link" style="text-align:center;">
-                    <h5>@Html.ActionLink("申银集团", "P1", "")</h5>
-                </div>
-            </li>
-            <li style='float:left;padding-right:15px;padding-bottom:15px;'>
-                <a href='@Url.Action("P2")'>
-                    <img src='~/images/shuire2s.jpg' class='img-thumbnail img-rounded' style='width:200px;height:200px;' />
-                </a>
-                <div class="gallery-box-link" style="text-align:center;">
-                    <h5>@Html.ActionLink("申银集团", "P2", "")</h5>
-                </div>
-            </li>
-            <li style='float:left;padding-right:15px;padding-bottom:15px;'>
-                <a href='@Url.Action("P3")'>
-                    <img src='~/images/shuire3s.jpg' class='img-thumbnail img-rounded' style='width:200px;height:200px;' />
-                </a>
-                <div class="gallery-box-link" style="text-align:center;">
-                    <h5>@Html.ActionLink("申银集团", "P3", "")</h5>
-                </div>
-            </li>
-            <li style='float:left;padding-right:15px;padding-bottom:15px;'>
-                <a href='@Url.Action("P4")'>
-                    <img src='~/images/shuire4s.jpg' class='img-thumbnail img-rounded' style='width:200px;height:200px;' />
-                </a>
-                <div class="gallery-box-link" style="text-align:center;">
-                    <h5>@Html.ActionLink("申银集团", "P4", "")</h5>
-                </div>
-            </li>
-            <li style='float:left;padding-right:15px;padding-bottom:15px;'>
-                <a href='@Url.Action("P5")'>
-                    <img src='~/images/shuire5s.jpg' class='img-thumbnail img-rounded' style='width:200px;height:200px;' />
-                </a>
-                <div class="gallery-box-link" style="text-align:center;">
-                    <h5>@Html.ActionLink("申银集团", "P5", "")</h5>
-                </div>
-            </li>
-            }
+                {
+                    <li style='float:left;padding-right:15px;padding-bottom:15px;'>
+                        <a href='@Url.Action("P1")'>
+                            <img src='~/images/shuire1s.jpg' class='img-thumbnail img-rounded' style='width:200px;height:200px;' />
+                        </a>
+                        <div class="gallery-box-link" style="text-align:center;">
+                            <h5>@Html.ActionLink("申银集团", "P1", "")</h5>
+                        </div>
+                    </li>
+                    <li style='float:left;padding-right:15px;padding-bottom:15px;'>
+                        <a href='@Url.Action("P2")'>
+                            <img src='~/images/shuire2s.jpg' class='img-thumbnail img-rounded' style='width:200px;height:200px;' />
+                        </a>
+                        <div class="gallery-box-link" style="text-align:center;">
+                            <h5>@Html.ActionLink("申银集团", "P2", "")</h5>
+                        </div>
+                    </li>
+                    <li style='float:left;padding-right:15px;padding-bottom:15px;'>
+                        <a href='@Url.Action("P3")'>
+                            <img src='~/images/shuire3s.jpg' class='img-thumbnail img-rounded' style='width:200px;height:200px;' />
+                        </a>
+                        <div class="gallery-box-link" style="text-align:center;">
+                            <h5>@Html.ActionLink("申银集团", "P3", "")</h5>
+                        </div>
+                    </li>
+                    <li style='float:left;padding-right:15px;padding-bottom:15px;'>
+                        <a href='@Url.Action("P4")'>
+                            <img src='~/images/shuire4s.jpg' class='img-thumbnail img-rounded' style='width:200px;height:200px;' />
+                        </a>
+                        <div class="gallery-box-link" style="text-align:center;">
+                            <h5>@Html.ActionLink("申银集团", "P4", "")</h5>
+                        </div>
+                    </li>
+                    <li style='float:left;padding-right:15px;padding-bottom:15px;'>
+                        <a href='@Url.Action("P5")'>
+                            <img src='~/images/shuire5s.jpg' class='img-thumbnail img-rounded' style='width:200px;height:200px;' />
+                        </a>
+                        <div class="gallery-box-link" style="text-align:center;">
+                            <h5>@Html.ActionLink("申银集团", "P5", "")</h5>
+                        </div>
+                    </li>
+                }
 
                 @foreach (var item in Model)
-            {
-                string filePath = VirtualPathUtility.ToAbsolute(System.Configuration.ConfigurationManager.AppSettings["fileRoot"]);
-                string picPath = string.Format("{0}/{1}", filePath, item.PicName);
-            <li style='float:left;padding-right:15px;padding-bottom:15px;'>
-                <a href='@picPath' alt='@item.Title' rel='prettyPhoto[gallery1]' id="img1">
-                    <img src='@picPath' class='img-thumbnail img-rounded' style='width:200px;height:200px;' alt='@item.Title' />
-                </a>
-                <div class="gallery-box-link" style="text-align:center;">
-                    <h5>@Html.ActionLink(item.Title, "ProductsDetail", new { Id = item.Id })</h5>
-                </div>
-            </li>
-            }
+                {
+                    string filePath = VirtualPathUtility.ToAbsolute(System.Configuration.ConfigurationManager.AppSettings["fileRoot"]);
+                    string picPath = string.Format("{0}/{1}", filePath, item.PicName);
+                    <li style='float:left;padding-right:15px;padding-bottom:15px;'>
+                        <a href='@picPath' alt='@item.Title' rel='prettyPhoto[gallery1]' id="img1">
+                            <img src='@picPath' class='img-thumbnail img-rounded' style='width:200px;height:200px;' alt='@item.Title' />
+                        </a>
+                        <div class="gallery-box-link" style="text-align:center;">
+                            <h5>@Html.ActionLink(item.Title, "ProductsDetail", new { Id = item.Id })</h5>
+                        </div>
+                    </li>
+                }
 
             </ul>
 
             <div class="displayInMobile">
                 @if (@ViewBag.type == "DY")
-            {
-            <div class="col-lg-3 col-md-3 col-sm-3">
-                <div class="gallery-box">
-                    <a href='@Url.Action("P1")'>
-                        <img src='~/images/shuire1s.jpg' class='img-thumbnail img-rounded' style='width:200px;height:200px;' />
-                    </a>
+                {
+                    <div class="col-lg-3 col-md-3 col-sm-3">
+                        <div class="gallery-box">
+                            <a href='@Url.Action("P1")'>
+                                <img src='~/images/shuire1s.jpg' class='img-thumbnail img-rounded' style='width:200px;height:200px;' />
+                            </a>
 
-                    <div class="gallery-box-titles">
-                        <h3>@Html.ActionLink("申银集团", "P1", "")</h3>
-                    </div><!-- gallery-box-titles -->
-                </div>
-            </div>
+                            <div class="gallery-box-titles">
+                                <h3>@Html.ActionLink("申银集团", "P1", "")</h3>
+                            </div><!-- gallery-box-titles -->
+                        </div>
+                    </div>
 
-            <div class="col-lg-3 col-md-3 col-sm-3">
-                <div class="gallery-box">
-                    <a href='@Url.Action("P2")'>
-                        <img src='~/images/shuire2s.jpg' class='img-thumbnail img-rounded' style='width:200px;height:200px;' />
-                    </a>
+                    <div class="col-lg-3 col-md-3 col-sm-3">
+                        <div class="gallery-box">
+                            <a href='@Url.Action("P2")'>
+                                <img src='~/images/shuire2s.jpg' class='img-thumbnail img-rounded' style='width:200px;height:200px;' />
+                            </a>
 
-                    <div class="gallery-box-titles">
-                        <h3>@Html.ActionLink("申银集团", "P2", "")</h3>
-                    </div><!-- gallery-box-titles -->
-                </div>
-            </div>
+                            <div class="gallery-box-titles">
+                                <h3>@Html.ActionLink("申银集团", "P2", "")</h3>
+                            </div><!-- gallery-box-titles -->
+                        </div>
+                    </div>
 
-            <div class="col-lg-3 col-md-3 col-sm-3">
-                <div class="gallery-box">
-                    <a href='@Url.Action("P3")'>
-                        <img src='~/images/shuire2s.jpg' class='img-thumbnail img-rounded' style='width:200px;height:200px;' />
-                    </a>
+                    <div class="col-lg-3 col-md-3 col-sm-3">
+                        <div class="gallery-box">
+                            <a href='@Url.Action("P3")'>
+                                <img src='~/images/shuire2s.jpg' class='img-thumbnail img-rounded' style='width:200px;height:200px;' />
+                            </a>
 
-                    <div class="gallery-box-titles">
-                        <h3>@Html.ActionLink("申银集团", "P3", "")</h3>
-                    </div><!-- gallery-box-titles -->
-                </div>
-            </div>
+                            <div class="gallery-box-titles">
+                                <h3>@Html.ActionLink("申银集团", "P3", "")</h3>
+                            </div><!-- gallery-box-titles -->
+                        </div>
+                    </div>
 
-            <div class="col-lg-3 col-md-3 col-sm-3">
-                <div class="gallery-box">
-                    <a href='@Url.Action("P4")'>
-                        <img src='~/images/shuire2s.jpg' class='img-thumbnail img-rounded' style='width:200px;height:200px;' />
-                    </a>
+                    <div class="col-lg-3 col-md-3 col-sm-3">
+                        <div class="gallery-box">
+                            <a href='@Url.Action("P4")'>
+                                <img src='~/images/shuire2s.jpg' class='img-thumbnail img-rounded' style='width:200px;height:200px;' />
+                            </a>
 
-                    <div class="gallery-box-titles">
-                        <h3>@Html.ActionLink("申银集团", "P4", "")</h3>
-                    </div><!-- gallery-box-titles -->
-                </div>
-            </div>
+                            <div class="gallery-box-titles">
+                                <h3>@Html.ActionLink("申银集团", "P4", "")</h3>
+                            </div><!-- gallery-box-titles -->
+                        </div>
+                    </div>
 
-            <div class="col-lg-3 col-md-3 col-sm-3">
-                <div class="gallery-box">
-                    <a href='@Url.Action("P5")'>
-                        <img src='~/images/shuire2s.jpg' class='img-thumbnail img-rounded' style='width:200px;height:200px;' />
-                    </a>
+                    <div class="col-lg-3 col-md-3 col-sm-3">
+                        <div class="gallery-box">
+                            <a href='@Url.Action("P5")'>
+                                <img src='~/images/shuire2s.jpg' class='img-thumbnail img-rounded' style='width:200px;height:200px;' />
+                            </a>
 
-                    <div class="gallery-box-titles">
-                        <h3>@Html.ActionLink("申银集团", "P5", "")</h3>
-                    </div><!-- gallery-box-titles -->
-                </div>
-            </div>
-            }
+                            <div class="gallery-box-titles">
+                                <h3>@Html.ActionLink("申银集团", "P5", "")</h3>
+                            </div><!-- gallery-box-titles -->
+                        </div>
+                    </div>
+                }
                 @foreach (var item in Model)
-            {
-                string filePath = VirtualPathUtility.ToAbsolute(System.Configuration.ConfigurationManager.AppSettings["fileRoot"]);
-                string picPath = string.Format("{0}/{1}", filePath, item.PicName);
-            <div class="col-lg-3 col-md-3 col-sm-3">
-                <div class="gallery-box">
-                    <a href="@picPath" class="zoombox effect-icona" data-biggallery="123" data-biggallerythumbnail="@picPath">
-                        <img class="img-thumbnail" src="@picPath" alt="">
-                    </a>
+                {
+                    string filePath = VirtualPathUtility.ToAbsolute(System.Configuration.ConfigurationManager.AppSettings["fileRoot"]);
+                    string picPath = string.Format("{0}/{1}", filePath, item.PicName);
+                    <div class="col-lg-3 col-md-3 col-sm-3">
+                        <div class="gallery-box">
+                            <a href="@picPath" class="effect-icona" >
+                                <img class="img-thumbnail" src="@picPath" alt="">
+                            </a>
 
-                    <div class="gallery-box-titles">
-                        <h3>@Html.ActionLink(item.Title, "ProductsDetail", new { Id = item.Id })</h3>
-                    </div><!-- gallery-box-titles -->
-                </div>
-            </div>
-            }
+                            <div class="gallery-box-titles">
+                                <h3>@Html.ActionLink(item.Title, "ProductsDetail", new { Id = item.Id })</h3>
+                            </div><!-- gallery-box-titles -->
+                        </div>
+                    </div>
+                }
             </div>
 
 
@@ -199,13 +199,13 @@
 
         </div><!-- end content -->
 
-        </div>
-        <div class="col-lg-11 col-md-11 col-sm-11 col-lg-offset-1">
-            @Html.PagedListPager((PagedList.IPagedList)Model, page => Url.Action("ProductsList", new { page = page, type = @ViewBag.type }), new PagedList.Mvc.PagedListRenderOptions { UlElementClasses = new List<string> { "pagination pagination-sm" }, MaximumPageNumbersToDisplay = 10, Display = PagedList.Mvc.PagedListDisplayMode.IfNeeded })
-        </div>
+    </div>
+    <div class="col-lg-11 col-md-11 col-sm-11 col-lg-offset-1">
+        @Html.PagedListPager((PagedList.IPagedList)Model, page => Url.Action("ProductsList", new { page = page, type = @ViewBag.type }), new PagedList.Mvc.PagedListRenderOptions { UlElementClasses = new List<string> { "pagination pagination-sm" }, MaximumPageNumbersToDisplay = 10, Display = PagedList.Mvc.PagedListDisplayMode.IfNeeded })
+    </div>
 
-        <div class="clearfix"></div>
-        <!-- END CONTENT -->
+    <div class="clearfix"></div>
+    <!-- END CONTENT -->
 
 </section><!-- end colon1 -->
 @section Scripts {
@@ -215,32 +215,32 @@
         {
             $(".zoombox").zoomBox();
         });
-        
+
         $(function ()
         {
-             var sUserAgent = navigator.userAgent.toLowerCase();
-                var bIsIpad = sUserAgent.match(/ipad/i) == "ipad";
-                var bIsIphoneOs = sUserAgent.match(/iphone os/i) == "iphone os";
-                var bIsMidp = sUserAgent.match(/midp/i) == "midp";
-                var bIsUc7 = sUserAgent.match(/rv:1.2.3.4/i) == "rv:1.2.3.4";
-                var bIsUc = sUserAgent.match(/ucweb/i) == "ucweb";
-                var bIsAndroid = sUserAgent.match(/android/i) == "android";
-                var bIsCE = sUserAgent.match(/windows ce/i) == "windows ce";
-                var bIsWM = sUserAgent.match(/windows mobile/i) == "windows mobile";
-                //document.writeln("您的浏览设备为：");
-                if (bIsIpad || bIsIphoneOs || bIsMidp || bIsUc7 || bIsUc || bIsAndroid || bIsCE || bIsWM)
-                {
-                    //document.writeln("phone");
-                } else
-                {
-                    $("a[rel^='prettyPhoto']").prettyPhoto({
-                        show_title: true,
-                        default_width: 800,
-                        default_height: 600,
-                        allow_resize: true
-                    });
-                }
-            
+            var sUserAgent = navigator.userAgent.toLowerCase();
+            var bIsIpad = sUserAgent.match(/ipad/i) == "ipad";
+            var bIsIphoneOs = sUserAgent.match(/iphone os/i) == "iphone os";
+            var bIsMidp = sUserAgent.match(/midp/i) == "midp";
+            var bIsUc7 = sUserAgent.match(/rv:1.2.3.4/i) == "rv:1.2.3.4";
+            var bIsUc = sUserAgent.match(/ucweb/i) == "ucweb";
+            var bIsAndroid = sUserAgent.match(/android/i) == "android";
+            var bIsCE = sUserAgent.match(/windows ce/i) == "windows ce";
+            var bIsWM = sUserAgent.match(/windows mobile/i) == "windows mobile";
+            //document.writeln("您的浏览设备为：");
+            if (bIsIpad || bIsIphoneOs || bIsMidp || bIsUc7 || bIsUc || bIsAndroid || bIsCE || bIsWM)
+            {
+                //document.writeln("phone");
+            } else
+            {
+                $("a[rel^='prettyPhoto']").prettyPhoto({
+                    show_title: true,
+                    default_width: 800,
+                    default_height: 600,
+                    allow_resize: true
+                });
+            }
+
 
             //$("a[rel^='prettyPhoto']").prettyPhoto({
             //    show_title: true,
