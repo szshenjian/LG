@@ -33,13 +33,16 @@ namespace Longgan.Web
 
             bundles.Add(new ScriptBundle("~/bundles/rs-plugin").Include(
                       "~/Scripts/jquery.nivo.slider.js",
-                      "~/Scripts/zoombox.js"
+                      "~/Scripts/zoombox.js",
+                      "~/Content/swipebox/js/jquery.swipebox.min.js"
                       ));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
                       "~/Content/style.css",
-                      "~/Content/qqcontact.css"));
+                      "~/Content/qqcontact.css",
+                      "~/Content/swipebox/css/swipebox.css"
+                      ));
 
             bundles.Add(new StyleBundle("~/Content/Admincss").Include(
                       "~/Content/AdminCss/bootstrap.css",

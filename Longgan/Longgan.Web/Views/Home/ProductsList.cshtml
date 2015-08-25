@@ -180,8 +180,12 @@
                     string picPath = string.Format("{0}/{1}", filePath, item.PicName);
                     <div class="col-lg-3 col-md-3 col-sm-3">
                         <div class="gallery-box">
-                            <a href="@picPath" class="effect-icona" >
+                            @*<a href="@picPath" class="effect-icona" >
                                 <img class="img-thumbnail" src="@picPath" alt="">
+                            </a>*@
+
+                            <a rel="gallery-1" href="@picPath" class="swipebox">
+                                <img src="@picPath" alt="">
                             </a>
 
                             <div class="gallery-box-titles">
@@ -214,6 +218,7 @@
         jQuery(document).ready(function ($)
         {
             $(".zoombox").zoomBox();
+            $('.swipebox').swipebox();
         });
 
         $(function ()
