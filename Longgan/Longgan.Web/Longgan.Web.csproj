@@ -255,6 +255,13 @@
     <Content Include="Content\menu.css" />
     <Content Include="Content\mightyslider.css" />
     <Content Include="Content\PagedList.css" />
+    <Content Include="Content\PhotoSwipe\default-skin\default-skin.css" />
+    <Content Include="Content\PhotoSwipe\default-skin\default-skin.png" />
+    <Content Include="Content\PhotoSwipe\default-skin\default-skin.svg" />
+    <Content Include="Content\PhotoSwipe\default-skin\preloader.gif" />
+    <Content Include="Content\PhotoSwipe\photoswipe-ui-default.min.js" />
+    <Content Include="Content\PhotoSwipe\photoswipe.css" />
+    <Content Include="Content\PhotoSwipe\photoswipe.min.js" />
     <Content Include="Content\pretty\css\prettyPhoto.css" />
     <Content Include="Content\pretty\images\prettyPhoto\default\default_thumb.png" />
     <Content Include="Content\pretty\images\prettyPhoto\default\loader.gif" />
