@@ -278,8 +278,15 @@
                 <header>
                     <h3>产品中心</h3>
                 </header>
-                <p>空气能热泵，别墅地源热泵，高温空气源</p><p>（电镀槽专用）</p><p>家用空调及净水业务</p>
-                @Html.ActionLink("read more", "ProductsList", null, new { @class = "readmore" })
+                <div class="hideInMobile">
+                    <p>空气能热泵，别墅地源热泵，高温空气源</p><p>（电镀槽专用）</p><p>家用空调及净水业务</p>
+                    @Html.ActionLink("read more", "ProductsList", null, new { @class = "readmore" })
+                </div>
+                <div class="displayInMobile" style="font-size:16px;">
+                    <p>空气能热泵，别墅地源热泵，高温空气源</p><p>（电镀槽专用）</p><p>家用空调及净水业务</p>
+                    @Html.ActionLink("read more", "ProductsList", null, new { @class = "readmore" })
+                </div>
+
             </div>
         </div>
         <div class="col-lg-3 col-md-3 col-sm-6">
@@ -289,33 +296,62 @@
                 <header>
                     <h3>安装案例</h3>
                 </header>
-                <p>专业设计</p>
-                <p>专业服务</p>
-                <p>专业安装</p>
 
-                @Html.ActionLink("read more", "Case", null, new { @class = "readmore" })
+                <div class="hideInMobile">
+                    <p>专业设计</p>
+                    <p>专业服务</p>
+                    <p>专业安装</p>
+
+                    @Html.ActionLink("read more", "Case", null, new { @class = "readmore" })
+                </div>
+                <div class="displayInMobile" style="font-size:16px;">
+                    <p>专业设计</p>
+                    <p>专业服务</p>
+                    <p>专业安装</p>
+
+                    @Html.ActionLink("read more", "Case", null, new { @class = "readmore" })
+                </div>
             </div>
         </div>
         <div class="col-lg-3 col-md-3 col-sm-6">
             <div class="box">
+                
                 <i class="icon-users hideInMobile"></i>
-                <a href="@Url.Action("AfterSale")"><i class="icon-wrench displayInMobile"></i></a>
+                <a href="@Url.Action("AfterSale")" class="displayInMobile" style="text-decoration: none;"><i class="icon-users displayInMobile"></i></a>
+
                 <header>
                     <h3>售后服务</h3>
                 </header>
-                <p>技术更精，速度更快，价格更低。</p><p>24小时全天待命。</p><p>一经服务；定期回访</p>
-                @Html.ActionLink("read more", "AfterSale", null, new { @class = "readmore" })
+
+                <div class="hideInMobile">
+                    <p>技术更精，速度更快，价格更低。</p><p>24小时全天待命。</p><p>一经服务；定期回访</p>
+                    @Html.ActionLink("read more", "AfterSale", null, new { @class = "readmore" })
+                </div>
+                <div class="displayInMobile" style="font-size:16px;">
+                    <p>技术更精，速度更快，价格更低。</p><p>24小时全天待命。</p><p>一经服务；定期回访</p>
+                    @Html.ActionLink("read more", "AfterSale", null, new { @class = "readmore" })
+                </div>
             </div>
         </div>
         <div class="col-lg-3 col-md-3 col-sm-6">
             <div class="box">
-                <i class="icon-whatsapp"></i>
+                <i class="icon-whatsapp hideInMobile"></i>
+                <a href="@Url.Action("Contact")" class="displayInMobile" style="text-decoration: none;"><i class="icon-whatsapp displayInMobile"></i></a>
+
                 <header>
                     <h3>联系我们</h3>
                 </header>
-                <p>感谢您对我们的支持，如果您对公司或者公司产品有任何意见、建议或者批评，请仔细填写以下表单，我们将会尽快处理并与您联系！</p>
 
-                @Html.ActionLink("read more", "Contact", null, new { @class = "readmore" })
+                <div class="hideInMobile">
+                    <p>感谢您对我们的支持，如果您对公司或者公司产品有任何意见、建议或者批评，请仔细填写以下表单，我们将会尽快处理并与您联系！</p>
+
+                    @Html.ActionLink("read more", "Contact", null, new { @class = "readmore" })
+                </div>
+                <div class="displayInMobile" style="font-size:16px;">
+                    <p>感谢您对我们的支持，如果您对公司或者公司产品有任何意见、建议或者批评，请仔细填写以下表单，我们将会尽快处理并与您联系！</p>
+
+                    @Html.ActionLink("read more", "Contact", null, new { @class = "readmore" })
+                </div>
 
             </div>
         </div>
@@ -330,74 +366,50 @@
             <header>
                 <h3><i class="icon-home"></i> 公司简介</h3>
             </header>
-            <p>苏州陇赣机电工程有限公司是一家专业从事空气源热泵、别墅地源热泵安装设计维护；工业空气能风干机完美方案提供者及工厂，酒店宾馆，医院学校宿舍企事业单位集中供热的优质服务商。</p>
 
-            <p>公司拥有丰富的专业人才及雄厚的技术力量，公司从产品的研发，设计，安装及售后均处於同行业的前列；已经在苏州地区拥有八百多家的忠实用户：涵盖工厂宿舍；酒店宾馆，别墅及住宅小区...</p>
+            <div class="hideInMobile">
+
+                <p>苏州陇赣机电工程有限公司是一家专业从事空气源热泵、别墅地源热泵安装设计维护；工业空气能风干机完美方案提供者及工厂，酒店宾馆，医院学校宿舍企事业单位集中供热的优质服务商。</p>
+
+                <p>公司拥有丰富的专业人才及雄厚的技术力量，公司从产品的研发，设计，安装及售后均处於同行业的前列；已经在苏州地区拥有八百多家的忠实用户：涵盖工厂宿舍；酒店宾馆，别墅及住宅小区...</p>
+
+            </div>
+            <div class="displayInMobile" style="font-size:16px;">
+
+                <p>苏州陇赣机电工程有限公司是一家专业从事空气源热泵、别墅地源热泵安装设计维护；工业空气能风干机完美方案提供者及工厂，酒店宾馆，医院学校宿舍企事业单位集中供热的优质服务商。</p>
+
+                <p>公司拥有丰富的专业人才及雄厚的技术力量，公司从产品的研发，设计，安装及售后均处於同行业的前列；已经在苏州地区拥有八百多家的忠实用户：涵盖工厂宿舍；酒店宾馆，别墅及住宅小区...</p>
+
+            </div>
+
 
             @Html.ActionLink("更多", "About", null, new { @class = "btn btn-primary" })
 
         </div>
 
+        <div class="displayInMobile">
+            <div style="height:15px;"></div>
+        </div>
 
         <div class="col-lg-6 col-md-6 col-sm-6">
 
             <header>
                 <h3><i class="icon-user-md"></i> 新闻中心</h3>
             </header>
-            <p>南方天气转暖 如何避过用电高峰 <strong class="text-success">2014-4-5</strong></p>
-            <p>北方仍处三月雪，南方桃花已盛开。东北三省依然是一片冰寒，部分南方沿海城市却已迎来早春，闽南漳、厦一带甚至一度回暖至20摄氏度。据预测，福建、海南等南方省市在接下来的四月份，气温将达到25摄氏度左右。一旦温度上升，用电高峰便难避免，那么如何应对用电高峰，保证洗浴舒适度与节约性呢？空气能热水器为此提供了良好的解决方式。</p>
+
+            <div class="hideInMobile">
+                <p>南方天气转暖 如何避过用电高峰 <strong class="text-success">2014-4-5</strong></p>
+                <p>北方仍处三月雪，南方桃花已盛开。东北三省依然是一片冰寒，部分南方沿海城市却已迎来早春，闽南漳、厦一带甚至一度回暖至20摄氏度。据预测，福建、海南等南方省市在接下来的四月份，气温将达到25摄氏度左右。一旦温度上升，用电高峰便难避免，那么如何应对用电高峰，保证洗浴舒适度与节约性呢？空气能热水器为此提供了良好的解决方式。</p>
+
+            </div>
+            <div class="displayInMobile" style="font-size:16px;">
+                <p>南方天气转暖 如何避过用电高峰 <strong class="text-success">2014-4-5</strong></p>
+                <p>北方仍处三月雪，南方桃花已盛开。东北三省依然是一片冰寒，部分南方沿海城市却已迎来早春，闽南漳、厦一带甚至一度回暖至20摄氏度。据预测，福建、海南等南方省市在接下来的四月份，气温将达到25摄氏度左右。一旦温度上升，用电高峰便难避免，那么如何应对用电高峰，保证洗浴舒适度与节约性呢？空气能热水器为此提供了良好的解决方式。</p>
+
+            </div>
 
             @Html.ActionLink("更多", "News", null, new { @class = "btn btn-primary" })
         </div>
-
-        @*<div class="col-lg-3 col-md-3 col-sm-6" data-effect="slide-bottom">
-
-                <header>
-                    <h3><i class="icon-user-md"></i> 售后服务</h3>
-                </header>
-                <p>百分之九十以上故障90分钟内解决，所修热泵部位保修45天</p>
-                <p>二十四小时快速服务</p>
-                <p>一经服务；定期回访</p>
-                <a class="btn btn-primary" href="#">更多</a>
-
-            </div>*@
-
-        @*<div class="col-lg-3 col-md-3 col-sm-6" data-effect="slide-bottom">
-                <header>
-                    <h3><i class="icon-newspaper-o"></i> 新闻中心</h3>
-                </header>
-                <div class="testimonials-slider">
-                    <div id="myCarouselV" class="carousel thumbnail fade">
-                        <div class="carousel-inner">
-                            <div class="item active">
-                                <div class="carousel-caption">
-                                    <img class="img-thumbnail" src="~/images/mc9.jpg" alt="">
-                                    <h4>@Html.ActionLink("低温空气能热水器技术助力燃煤锅炉被替换", "News")</h4>
-                                    <p>压缩机是空气能热水器的最核心的部件</p>
-                                </div>
-                            </div>
-                            <div class="item">
-                                <div class="carousel-caption">
-                                    <img class="img-thumbnail" src="~/images/jyx1.png" alt="">
-                                    <h4>@Html.ActionLink("空气能成为主流热水器产品是必然趋势", "News")</h4>
-                                    <p>近年来，随着空气能产业的快速崛起</p>
-                                </div>
-                            </div>
-                            <div class="item">
-                                <div class="carousel-caption">
-                                    <img class="img-thumbnail" src="~/images/mc10.jpg" alt="">
-                                    <h4>@Html.ActionLink("节能热水器：空气能和太阳能相互竞争", "News")</h4>
-                                    <p>同为节能产品，本该共谋发展</p>
-                                </div>
-                            </div>
-                        </div><!-- end carousel -->
-                        <a class="left carousel-control" href="#myCarouselV" data-slide="prev"><span class="icon-prev"></span></a>
-                        <a class="right carousel-control" href="#myCarouselV" data-slide="next"><span class="icon-next"></span></a>
-                    </div><!-- myCarouselV -->
-                </div>
-
-            </div>*@
-
 
     </div>
 </section>
