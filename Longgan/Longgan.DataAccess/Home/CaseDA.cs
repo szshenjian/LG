@@ -11,7 +11,7 @@ namespace Longgan.DataAccess.Home
     {
         public List<SetCase> GetCases()
         {
-            return base.Get().OrderByDescending(p => p.Created).ToList();
+            return base.Get().OrderByDescending(p => p.PriorityNum).ToList();
         }
 
         public SetCase GetCase(string Id)

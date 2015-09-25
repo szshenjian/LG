@@ -63,7 +63,7 @@ namespace Longgan.Web.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Name,Email,Phone,Title,Content,Created")] Message message)
+        public ActionResult Create([Bind(Include = "Id,Name,Email,Phone,Title,Content,Created,Qq")] Message message)
         {
             if (Session["Login"] == null || !(bool)Session["Login"])
             {
@@ -104,7 +104,7 @@ namespace Longgan.Web.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Name,Email,Phone,Title,Content,Created")] Message message)
+        public ActionResult Edit([Bind(Include = "Id,Name,Email,Phone,Title,Content,Created,Qq")] Message message)
         {
             if (Session["Login"] == null || !(bool)Session["Login"])
             {

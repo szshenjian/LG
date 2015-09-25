@@ -54,6 +54,9 @@
                         @Html.TextBoxFor(m => m.Phone, new { @class = "form-control", @placeholder = "电话" })
                         @Html.ValidationMessageFor(model => model.Phone, "", new { @class = "text-danger" })
                         <br>
+                        @Html.TextBoxFor(m => m.Qq, new { @class = "form-control", @placeholder = "QQ" })
+                        @Html.ValidationMessageFor(model => model.Qq, "", new { @class = "text-danger" })
+                        <br>
                         @Html.TextBoxFor(m => m.Email, new { @class = "form-control", @placeholder = "邮箱" })
                         @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
                         <br>
