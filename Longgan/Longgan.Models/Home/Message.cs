@@ -29,5 +29,9 @@ namespace Longgan.Models.Home
         public string Content { get; set; }
         [Display(Name = "留言时间")]
         public DateTime Created { get; set; }
+
+        [StringLength(100)]
+        [Display(Name = "QQ")]
+        public string Qq { get; set; }
     }
 }
