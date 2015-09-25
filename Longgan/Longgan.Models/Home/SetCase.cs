@@ -21,5 +21,10 @@ namespace Longgan.Models.Home
         public string PicName { get; set; }
 
         public DateTime Created { get; set; }
+
+        [Required]
+        [Range(0, 10000)]
+        [Display(Name = "排序 - 数字")]
+        public int PriorityNum { get; set; }
     }
 }
