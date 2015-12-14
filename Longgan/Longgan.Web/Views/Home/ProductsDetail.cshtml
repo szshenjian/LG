@@ -1,14 +1,17 @@
-﻿@model Longgan.Models.Home.Product
+﻿@model PagedList.StaticPagedList<Longgan.Models.Home.Product>
+@using PagedList
+@using PagedList.Mvc
 
 <link rel="stylesheet" type="text/css" href="~/Content/zoom.css" />
 
 
 <section class="colon14">
+
     <div class="singleheader">
         <div class="container">
             <div class="col-lg-6 col-sm-6 col-md-6">
                 <div class="single-title">
-                    <h3>@Model.Title</h3>
+                    @*<h3>@item.Title</h3>*@
                 </div>
             </div>
             <div class="col-lg-6 col-sm-6 col-md-6">
@@ -16,44 +19,52 @@
                     <ul class="breadcrumb">
                         <li>@Html.ActionLink("首页", "Index")</li>
                         <li>@Html.ActionLink("产品展示", "ProductsList")</li>
-                        <li class="active">@Model.Title</li>
+                        @*<li class="active">@item.Title</li>*@
                     </ul>
                 </div>
             </div>
         </div>
 
     </div>
-    @{
-        string filePath = VirtualPathUtility.ToAbsolute(System.Configuration.ConfigurationManager.AppSettings["fileRoot"]);
-        string picPath = string.Format("{0}/{1}", filePath, Model.PicName);
-    }
+
     <!-- START CONTENT AND SIDEBAR -->
     <div class="container general">
+        <div class="col-lg-2 col-md-2 col-sm-2">
+            @Html.PagedListPager((PagedList.IPagedList)Model, page => Url.Action("ProductsDetail", new { page = page, Id = @ViewBag.id }), new PagedList.Mvc.PagedListRenderOptions { UlElementClasses = new List<string> { "pager" }, LinkToNextPageFormat = "下一张", LinkToPreviousPageFormat = "上一张", MaximumPageNumbersToDisplay = 1, DisplayLinkToFirstPage = PagedListDisplayMode.Never, DisplayLinkToLastPage = PagedListDisplayMode.Never, DisplayPageCountAndCurrentLocation = false, DisplayLinkToIndividualPages = false, Display = PagedList.Mvc.PagedListDisplayMode.IfNeeded })
+        </div>
+        @foreach (var item in Model)
+        {
+            string filePath = VirtualPathUtility.ToAbsolute(System.Configuration.ConfigurationManager.AppSettings["fileRoot"]);
+            string picPath = string.Format("{0}/{1}", filePath, item.PicName);
 
-        <div id="content" class="single-portfolio col-lg-12 col-md-12 col-sm-12">
-            
-            <div id="zoomdiv" class="col-lg-8 col-md-8 col-sm-12">
-                <span class='zoom' id='photoImg'>
-                    <img src="@Url.Content(@picPath)" alt="" title="" />
-                </span>
-            </div>
+            <div id="content" class="single-portfolio col-lg-12 col-md-12 col-sm-12">
 
-            <div class="col-lg-4 col-md-4 col-sm-12">
-                <div class="clearfix"></div>
-                <h2 class="general-title">
-                    <span>产品描述</span>
-                </h2>
+                <div id="zoomdiv" class="col-lg-8 col-md-8 col-sm-12">
+                    <span class='zoom' id='photoImg'>
+                        <img src="@Url.Content(@picPath)" alt="" title="" />
+                    </span>
+                </div>
 
-                <p>@Model.Title</p>
-                <p>@Model.Content</p>
+                <div class="col-lg-4 col-md-4 col-sm-12">
+                    <div class="clearfix"></div>
+                    <h2 class="general-title">
+                        <span>产品描述</span>
+                    </h2>
 
-            
-            <!-- end accordion -->
-            </div><!-- end widget -->
-        </div><!-- end col-4 -->
+                    <p>@item.Title</p>
+                    <p>@item.Content</p>
 
 
-        
+                    <!-- end accordion -->
+                </div><!-- end widget -->
+            </div><!-- end col-4 -->
+
+        }
+        <div class="clearfix"></div>
+
+        <div class="col-lg-2 col-md-2 col-sm-2">
+            @Html.PagedListPager((PagedList.IPagedList)Model, page => Url.Action("ProductsDetail", new { page = page, Id = @ViewBag.id }), new PagedList.Mvc.PagedListRenderOptions { UlElementClasses = new List<string> { "pager" }, LinkToNextPageFormat = "下一张", LinkToPreviousPageFormat = "上一张", MaximumPageNumbersToDisplay = 1, DisplayLinkToFirstPage = PagedListDisplayMode.Never, DisplayLinkToLastPage = PagedListDisplayMode.Never, DisplayPageCountAndCurrentLocation = false, DisplayLinkToIndividualPages = false, Display = PagedList.Mvc.PagedListDisplayMode.IfNeeded })
+        </div>
     </div><!-- end content -->
     <!-- end container -->
     <!-- END CONTENT -->
@@ -65,17 +76,20 @@
     <script>
         (function ($)
         {
-            var w = $("#zoomdiv").width();//容器宽度 
-            $("#zoomdiv img").each(function () {//如果有很多图片，我们可以使用each()遍历 
-                var img_w = $(this).width();//图片宽度 
-                var img_h = $(this).height();//图片高度 
-                if (img_w > w) {//如果图片宽度超出容器宽度--要撑破了 
-                    var height = (w * img_h) / img_w; //高度等比缩放 
-                    $(this).css({ "width": w, "height": height });//设置缩放后的宽度和高度 
+            var w = $("#zoomdiv").width();//容器宽度
+            $("#zoomdiv img").each(function ()
+            {//如果有很多图片，我们可以使用each()遍历
+                var img_w = $(this).width();//图片宽度
+                var img_h = $(this).height();//图片高度
+                if (img_w > w)
+                {//如果图片宽度超出容器宽度--要撑破了
+                    var height = (w * img_h) / img_w; //高度等比缩放
+                    $(this).css({ "width": w, "height": height });//设置缩放后的宽度和高度
                 }
             });
 
-            $(document).ready(function () {
+            $(document).ready(function ()
+            {
                 $('#photoImg').zoom();
             });
 

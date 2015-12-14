@@ -10,13 +10,13 @@
 
                 @{
                     List<Longgan.Models.Home.Product> allProducts = new Longgan.Logics.Home.ProductsLogic().GetProducts();
-                    List<Longgan.Models.Home.Product> SYProducts = allProducts.FindAll(p => p.Type == "SY").OrderByDescending(p => p.Created).Take(3).ToList();
-                    List<Longgan.Models.Home.Product> JYProducts = allProducts.FindAll(p => p.Type == "JY").OrderByDescending(p => p.Created).Take(3).ToList();
-                    List<Longgan.Models.Home.Product> DYProducts = allProducts.FindAll(p => p.Type == "DY").OrderByDescending(p => p.Created).Take(3).ToList();
-                    List<Longgan.Models.Home.Product> KZProducts = allProducts.FindAll(p => p.Type == "KZ").OrderByDescending(p => p.Created).Take(3).ToList();
-                    List<Longgan.Models.Home.Product> DQProducts = allProducts.FindAll(p => p.Type == "DQ").OrderByDescending(p => p.Created).Take(3).ToList();
-                    List<Longgan.Models.Home.Product> KTProducts = allProducts.FindAll(p => p.Type == "KT").OrderByDescending(p => p.Created).Take(3).ToList();
-                    List<Longgan.Models.Home.Product> GWProducts = allProducts.FindAll(p => p.Type == "GW").OrderByDescending(p => p.Created).Take(3).ToList();
+                    List<Longgan.Models.Home.Product> SYProducts = allProducts.FindAll(p => p.Type == "SY").OrderByDescending(p => p.PriorityNum).Take(3).ToList();
+                    List<Longgan.Models.Home.Product> JYProducts = allProducts.FindAll(p => p.Type == "JY").OrderByDescending(p => p.PriorityNum).Take(3).ToList();
+                    List<Longgan.Models.Home.Product> DYProducts = allProducts.FindAll(p => p.Type == "DY").OrderByDescending(p => p.PriorityNum).Take(3).ToList();
+                    List<Longgan.Models.Home.Product> KZProducts = allProducts.FindAll(p => p.Type == "KZ").OrderByDescending(p => p.PriorityNum).Take(3).ToList();
+                    List<Longgan.Models.Home.Product> DQProducts = allProducts.FindAll(p => p.Type == "DQ").OrderByDescending(p => p.PriorityNum).Take(3).ToList();
+                    List<Longgan.Models.Home.Product> KTProducts = allProducts.FindAll(p => p.Type == "KT").OrderByDescending(p => p.PriorityNum).Take(3).ToList();
+                    List<Longgan.Models.Home.Product> GWProducts = allProducts.FindAll(p => p.Type == "GW").OrderByDescending(p => p.PriorityNum).Take(3).ToList();
 
                     string filePath = VirtualPathUtility.ToAbsolute(System.Configuration.ConfigurationManager.AppSettings["fileRoot"]);
 
@@ -70,60 +70,60 @@
                                 <li>
                                     <div class="widget">
                                         <ul class="recent-posts">
-                                            @if (p == "DY")
-                                            {
-                                                <li>
-                                                    <div class="recent-posts-img">
-                                                        <a href="@Url.Action("P1")" title="" rel="bookmark">
-                                                            <img style="width:60px;height:60px;" src="~/images/shuire1s.jpg" alt="" />
-                                                        </a>
-                                                    </div>
-                                                    <div class="recent-posts-content">
-                                                        <a href="@Url.Action("P1")"><p>申银集团</p></a>
-                                                    </div>
-
-                                                </li>
-                                                <li>
-                                                    <div class="recent-posts-img">
-                                                        <a href="@Url.Action("P2")" title="" rel="bookmark">
-                                                            <img style="width:60px;height:60px;" src="~/images/shuire2s.jpg" alt="" />
-                                                        </a>
-                                                    </div>
-                                                    <div class="recent-posts-content">
-                                                        <a href="@Url.Action("P2")"><p>申银集团</p></a>
-                                                    </div>
-
-                                                </li>
-                                                <li>
-                                                    <div class="recent-posts-img">
-                                                        <a href="@Url.Action("P5")" title="" rel="bookmark">
-                                                            <img style="width:60px;height:60px;" src="~/images/shuire5s.jpg" alt="" />
-                                                        </a>
-                                                    </div>
-                                                    <div class="recent-posts-content">
-                                                        <a href="@Url.Action("P5")"><p>申银集团</p></a>
-                                                    </div>
-
-                                                </li>
-                                            }
-                                            else
-                                            {
-                                                foreach (Longgan.Models.Home.Product product in lPs)
+                                            @*@if (p == "DY")
                                                 {
-                                                    string picPath = string.Format("{0}/{1}", filePath, product.PicName);
                                                     <li>
                                                         <div class="recent-posts-img">
-                                                            <a href="@Url.Action("ProductsDetail", new { Id = @product.Id })" title="" rel="bookmark">
-                                                                <img style="width:60px;height:60px;" src="@Url.Content(@picPath)" alt="" />
+                                                            <a href="@Url.Action("P1")" title="" rel="bookmark">
+                                                                <img style="width:60px;height:60px;" src="~/images/shuire1s.jpg" alt="" />
                                                             </a>
                                                         </div>
                                                         <div class="recent-posts-content">
-                                                            <a href="@Url.Action("ProductsDetail", new { Id = @product.Id })"><p>@product.Title</p></a>
+                                                            <a href="@Url.Action("P1")"><p>申银集团</p></a>
+                                                        </div>
+
+                                                    </li>
+                                                    <li>
+                                                        <div class="recent-posts-img">
+                                                            <a href="@Url.Action("P2")" title="" rel="bookmark">
+                                                                <img style="width:60px;height:60px;" src="~/images/shuire2s.jpg" alt="" />
+                                                            </a>
+                                                        </div>
+                                                        <div class="recent-posts-content">
+                                                            <a href="@Url.Action("P2")"><p>申银集团</p></a>
+                                                        </div>
+
+                                                    </li>
+                                                    <li>
+                                                        <div class="recent-posts-img">
+                                                            <a href="@Url.Action("P5")" title="" rel="bookmark">
+                                                                <img style="width:60px;height:60px;" src="~/images/shuire5s.jpg" alt="" />
+                                                            </a>
+                                                        </div>
+                                                        <div class="recent-posts-content">
+                                                            <a href="@Url.Action("P5")"><p>申银集团</p></a>
                                                         </div>
 
                                                     </li>
                                                 }
+                                                else
+                                                {*@
+                                            @foreach (Longgan.Models.Home.Product product in lPs)
+                                            {
+                                                string picPath = string.Format("{0}/{1}", filePath, product.PicName);
+                                                <li>
+                                                    <div class="recent-posts-img">
+                                                        <a href="@Url.Action("ProductsDetail", new { Id = @product.Id })" title="" rel="bookmark">
+                                                            <img style="width:60px;height:60px;" src="@Url.Content(@picPath)" alt="" />
+                                                        </a>
+                                                    </div>
+                                                    <div class="recent-posts-content">
+                                                        <a href="@Url.Action("ProductsDetail", new { Id = @product.Id })"><p>@product.Title</p></a>
+                                                    </div>
+
+                                                </li>
                                             }
+                                            @*  }*@
 
                                         </ul>
                                     </div>

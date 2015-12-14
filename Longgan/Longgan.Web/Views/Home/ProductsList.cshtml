@@ -55,7 +55,7 @@
 
 
             <ul class='gallery clearfix hideInMobile' style='list-style-type: none;'>
-                @if (@ViewBag.type == "DY")
+                @*@if (@ViewBag.type == "DY")
                 {
                 <li style='float:left;padding-right:15px;padding-bottom:15px;'>
                     <a href='@Url.Action("P1")'>
@@ -97,7 +97,7 @@
                         <h5>@Html.ActionLink("申银集团", "P5", "")</h5>
                     </div>
                 </li>
-                }
+                }*@
 
                 @foreach (var item in Model)
                 {
@@ -118,7 +118,7 @@
             <div class="displayInMobile">
                 <div class="my-gallery" itemscope itemtype="http://schema.org/ImageGallery">
 
-                    @if (@ViewBag.type == "DY")
+                    @*@if (@ViewBag.type == "DY")
                     {
                         <figure class="gallery-box" itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
                             <a href='~/images/shuire1.jpg' itemprop="contentUrl" data-size="1358x928">
@@ -160,7 +160,7 @@
                                 <figcaption itemprop="caption description"><h3>@Html.ActionLink("申银集团", "P5", "")</h3></figcaption>
                             </div>
                         </figure>
-                    }
+                    }*@
                     @foreach (var item in Model)
                     {
                         string filePath = VirtualPathUtility.ToAbsolute(System.Configuration.ConfigurationManager.AppSettings["fileRoot"]);
