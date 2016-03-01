@@ -422,6 +422,7 @@
     <Content Include="images\product-business.png" />
     <Content Include="images\product-family.png" />
     <Content Include="images\product-ground.png" />
+    <Content Include="images\q1.jpg" />
     <Content Include="images\qqContact.png" />
     <Content Include="images\qqonline.png" />
     <Content Include="images\search.png" />
